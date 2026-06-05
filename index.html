@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Meta Ads — CA - Dental Clinic | 6 Mai – 4 Jun 2026</title>
+<style>
+:root, [data-theme="dark"] {
+  --bg:#0c0e18; --surface:#13161f; --surface2:#1a1e2e; --surface3:#222640;
+  --border:#252a3d; --accent:#5b7fff; --accent2:#a855f7;
+  --green:#22c55e; --yellow:#f59e0b; --red:#ef4444;
+  --text:#e4e9f5; --muted:#5e6a8a; --meta:#1877f2; --ig:#e1306c;
+  --card-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+[data-theme="light"] {
+  --bg:#f5f7fa; --surface:#ffffff; --surface2:#f0f2f5; --surface3:#e8eaed;
+  --border:#e2e5ea; --accent:#3b5bdb; --accent2:#7c3aed;
+  --green:#16a34a; --yellow:#d97706; --red:#dc2626;
+  --text:#1e293b; --muted:#64748b; --meta:#1877f2; --ig:#e1306c;
+  --card-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.65; -webkit-text-size-adjust:100%; }
+.wrap { max-width:1140px; margin:0 auto; padding:0 32px; overflow-x:hidden; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+
+/* Header */
+.header { background:linear-gradient(160deg, rgba(91,127,255,.08) 0%, var(--bg) 60%); border-bottom:1px solid var(--border); padding:36px 0; }
+.header-inner { max-width:1140px; margin:0 auto; padding:0 32px; display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; }
+.header h1 { font-size:32px; font-weight:800; letter-spacing:-0.5px; margin-bottom:4px; }
+.header h1 span { color:var(--accent); }
+.header-sub { color:var(--muted); font-size:14px; }
+.header-right { text-align:right; flex-shrink:0; display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+.period-label { font-size:24px; font-weight:800; background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.gen-date { color:var(--muted); font-size:12px; }
+.theme-toggle { background:var(--surface2); border:1px solid var(--border); border-radius:10px; padding:6px 14px; cursor:pointer; font-size:18px; transition:all .2s; }
+.theme-toggle:hover { border-color:var(--accent); }
+.chips { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.chip { display:inline-flex; align-items:center; gap:5px; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:700; letter-spacing:.4px; }
+.chip.meta { background:rgba(24,119,242,.12); border:1px solid rgba(24,119,242,.25); color:var(--meta); }
+.chip.ig { background:rgba(225,48,108,.12); border:1px solid rgba(225,48,108,.25); color:var(--ig); }
+.chip.agency { background:rgba(91,127,255,.12); border:1px solid rgba(91,127,255,.25); color:var(--accent); }
+
+/* Sections */
+.main { padding:40px 0; }
+.section-title { font-size:12px; font-weight:700; letter-spacing:1.8px; color:var(--muted); text-transform:uppercase; margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+.section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+/* KPIs */
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-bottom:40px; }
+.kpi-card { background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--accent); border-radius:14px; padding:22px 20px; box-shadow:var(--card-shadow); }
+.kpi-card.g { border-top-color:var(--green); } .kpi-card.p { border-top-color:var(--accent2); } .kpi-card.ig { border-top-color:var(--ig); } .kpi-card.y { border-top-color:var(--yellow); }
+.kpi-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:700; }
+.kpi-value { font-size:28px; font-weight:900; margin:8px 0 4px; line-height:1; white-space:nowrap; }
+.kpi-sub { font-size:13px; color:var(--muted); white-space:nowrap; }
+.delta { font-size:13px; font-weight:700; margin-left:4px; }
+.delta.up { color:var(--green); } .delta.down { color:var(--red); } .delta.neutral { color:var(--muted); }
+
+/* Charts CSS */
+.charts-row { display:grid; grid-template-columns:2fr 1fr; gap:20px; margin-bottom:40px; }
+.chart-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; box-shadow:var(--card-shadow); }
+.chart-card h3 { font-size:14px; font-weight:700; margin-bottom:16px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+.css-bars { display:flex; align-items:flex-end; gap:1px; height:180px; padding:4px 0; border-bottom:1px solid var(--border); }
+.css-bar { flex:1; min-width:2px; max-width:24px; border-radius:3px 3px 0 0; position:relative; cursor:pointer; transition:opacity .15s; background:var(--accent); }
+.css-bar:hover { opacity:.75; }
+.css-bar .bar-tip { display:none; position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%); background:var(--surface); border:1px solid var(--border); padding:6px 10px; border-radius:8px; font-size:11px; white-space:nowrap; z-index:20; box-shadow:0 4px 12px rgba(0,0,0,.2); color:var(--text); line-height:1.5; }
+.css-bar:hover .bar-tip { display:block; }
+.bar-legend { display:flex; gap:16px; margin-top:10px; justify-content:center; }
+.bar-legend span { font-size:12px; color:var(--muted); display:flex; align-items:center; gap:5px; }
+.bar-legend i { display:inline-block; width:10px; height:10px; border-radius:2px; }
+.css-bars-axis { display:flex; justify-content:space-between; font-size:10px; color:var(--muted); margin-top:4px; padding:0 2px; }
+.dist-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.dist-label { min-width:100px; max-width:140px; font-size:13px; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.dist-bar-wrap { flex:1; height:26px; background:var(--surface2); border-radius:6px; overflow:hidden; }
+.dist-bar { height:100%; border-radius:6px; display:flex; align-items:center; padding:0 8px; font-size:11px; font-weight:700; color:#fff; white-space:nowrap; min-width:fit-content; }
+.dist-val { min-width:80px; text-align:right; font-size:13px; color:var(--muted); white-space:nowrap; }
+
+/* Campaigns */
+.camp-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:40px; }
+.camp-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--card-shadow); }
+.camp-top { padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+.camp-funnel-tag { display:inline-block; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:3px 10px; border-radius:6px; margin-bottom:6px; }
+.camp-funnel-tag.tofu { background:rgba(91,127,255,.12); color:var(--accent); }
+.camp-funnel-tag.mofu { background:rgba(168,85,247,.12); color:var(--accent2); }
+.camp-funnel-tag.bofu { background:rgba(34,197,94,.12); color:var(--green); }
+.camp-name { font-size:15px; font-weight:700; line-height:1.4; }
+.camp-spend { font-size:26px; font-weight:900; text-align:right; white-space:nowrap; }
+.camp-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); }
+.camp-metric { background:var(--surface); padding:16px 18px; }
+.camp-metric-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.7px; font-weight:600; margin-bottom:4px; }
+.camp-metric-value { font-size:20px; font-weight:800; white-space:nowrap; }
+.sat-badge { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-top:4px; }
+.sat-badge.ok { background:rgba(34,197,94,.12); color:var(--green); }
+.sat-badge.atencao { background:rgba(245,158,11,.12); color:var(--yellow); }
+.sat-badge.critica { background:rgba(239,68,68,.12); color:var(--red); }
+.camp-actions { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:18px 24px; }
+.action-box { background:var(--surface2); border:1px solid var(--border); border-radius:10px; padding:12px 8px; text-align:center; }
+.action-val { font-size:20px; font-weight:800; margin:4px 0 2px; white-space:nowrap; }
+.action-name { font-size:11px; color:var(--muted); }
+
+/* Ad Sets table */
+.adsets-table { width:100%; border-collapse:collapse; margin-bottom:40px; background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--card-shadow); }
+.adsets-table th { background:var(--surface2); padding:14px 16px; text-align:left; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.7px; color:var(--muted); border-bottom:1px solid var(--border); }
+.adsets-table td { padding:14px 16px; border-bottom:1px solid var(--border); font-size:14px; white-space:nowrap; }
+.adsets-table td:first-child { white-space:normal; min-width:150px; }
+.adsets-table tr:last-child td { border-bottom:none; }
+.adsets-table .camp-group { background:var(--surface2); font-weight:700; font-size:13px; color:var(--accent); }
+
+/* Creatives */
+.creative-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:40px; }
+.creative-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--card-shadow); }
+.creative-header { padding:18px 22px; border-bottom:1px solid var(--border); }
+.creative-header .camp-path { font-size:12px; color:var(--muted); margin-bottom:4px; }
+.creative-header .ad-name { font-size:15px; font-weight:700; }
+.creative-header .status-badge { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
+.creative-header .status-badge.active { background:rgba(34,197,94,.12); color:var(--green); }
+.creative-header .status-badge.paused { background:rgba(245,158,11,.12); color:var(--yellow); }
+.creative-body { padding:18px 22px; }
+.creative-thumb { width:100%; max-height:200px; object-fit:cover; border-radius:10px; margin-bottom:14px; background:var(--surface2); }
+.creative-caption { font-size:13px; color:var(--muted); line-height:1.5; margin-bottom:10px; max-height:60px; overflow:hidden; }
+.creative-links { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+.creative-links a { font-size:12px; padding:4px 10px; background:var(--surface2); border:1px solid var(--border); border-radius:6px; }
+.creative-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:16px 22px; border-top:1px solid var(--border); }
+.cm-item { text-align:center; }
+.cm-val { font-size:18px; font-weight:800; white-space:nowrap; }
+.cm-label { font-size:11px; color:var(--muted); }
+.retention-funnel { padding:16px 22px 18px; border-top:1px solid var(--border); }
+.retention-title { font-size:12px; font-weight:700; color:var(--text); text-transform:uppercase; letter-spacing:.7px; margin-bottom:2px; }
+.ret-subtitle { font-size:12px; color:var(--muted); margin-bottom:14px; }
+.ret-row { display:grid; grid-template-columns:110px 1fr 100px; align-items:center; gap:10px; margin-bottom:10px; }
+.ret-row-label { font-size:12px; color:var(--muted); font-weight:600; white-space:nowrap; }
+.ret-row-bar-wrap { background:var(--surface2); border-radius:6px; height:20px; overflow:hidden; }
+.ret-row-bar { height:100%; border-radius:6px; transition:width .5s; }
+.ret-row-nums { display:flex; flex-direction:column; align-items:flex-end; }
+.ret-count { font-size:13px; font-weight:800; line-height:1.2; }
+.ret-pct { font-size:11px; color:var(--muted); }
+
+/* Reels */
+.reels-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+.reel-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px; position:relative; box-shadow:var(--card-shadow); }
+.reel-card.top { border-left:4px solid var(--green); }
+.reel-rank { position:absolute; top:14px; right:16px; font-size:11px; font-weight:800; padding:3px 10px; border-radius:6px; background:rgba(34,197,94,.12); color:var(--green); }
+.reel-date { font-size:12px; color:var(--muted); margin-bottom:10px; }
+.reel-caption { font-size:13px; color:var(--muted); line-height:1.5; margin-bottom:14px; max-height:42px; overflow:hidden; }
+.reel-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.reel-metric { text-align:center; }
+.reel-metric-val { font-size:18px; font-weight:800; white-space:nowrap; }
+.reel-metric-label { font-size:11px; color:var(--muted); margin-top:2px; }
+.reel-extras { display:flex; gap:16px; margin-top:12px; padding-top:12px; border-top:1px solid var(--border); flex-wrap:wrap; }
+.reel-extra { font-size:13px; color:var(--muted); } .reel-extra strong { color:var(--text); }
+
+/* Totals bar */
+.totals-bar { background:linear-gradient(135deg,rgba(91,127,255,.06),rgba(225,48,108,.06)); border:1px solid var(--border); border-radius:14px; padding:22px 28px; margin-bottom:40px; display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px; }
+.totals-item { text-align:center; }
+.totals-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-weight:700; }
+.totals-value { font-size:34px; font-weight:900; background:linear-gradient(135deg,var(--accent),var(--ig)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; white-space:nowrap; }
+.totals-sub { font-size:13px; color:var(--muted); }
+
+/* Alerts */
+.alerts-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:40px; }
+.alert-card { background:var(--surface); border:1px solid var(--border); border-left:4px solid; border-radius:14px; padding:20px 22px; display:flex; gap:14px; box-shadow:var(--card-shadow); }
+.alert-card.success { border-left-color:var(--green); } .alert-card.warning { border-left-color:var(--yellow); }
+.alert-card.danger { border-left-color:var(--red); } .alert-card.info { border-left-color:var(--accent); }
+.alert-icon { font-size:22px; flex-shrink:0; margin-top:2px; }
+.alert-title { font-size:15px; font-weight:700; margin-bottom:4px; }
+.alert-desc { font-size:13px; color:var(--muted); line-height:1.6; }
+
+/* Conversion cards */
+.conv-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:40px; }
+.conv-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px 18px; text-align:center; box-shadow:var(--card-shadow); }
+.conv-emoji { font-size:24px; margin-bottom:6px; }
+.conv-val { font-size:26px; font-weight:900; white-space:nowrap; }
+.conv-label { font-size:12px; color:var(--muted); margin-top:2px; }
+.conv-cost { font-size:12px; color:var(--accent); margin-top:6px; font-weight:700; }
+
+/* Blue conversation cards */
+.kpi-card.blue-card { background:#1877f2; border-color:#1877f2; border-top-color:#1251b5; }
+.kpi-card.blue-card .kpi-label { color:rgba(255,255,255,.85); }
+.kpi-card.blue-card .kpi-value { color:#fff; }
+.kpi-card.blue-card .kpi-sub { color:rgba(255,255,255,.7); }
+
+/* Demographic grouped bar charts */
+.demo-charts-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:40px; }
+.demo-chart { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; box-shadow:var(--card-shadow); }
+.demo-chart h3 { font-size:13px; font-weight:700; color:var(--text); margin-bottom:20px; }
+.demo-bars { display:flex; align-items:flex-end; gap:8px; height:180px; border-bottom:1px solid var(--border); padding-bottom:0; }
+.demo-group { display:flex; flex-direction:column; align-items:center; flex:1; }
+.demo-group-bars { display:flex; align-items:flex-end; gap:3px; }
+.demo-bar-wrap { display:flex; flex-direction:column; align-items:center; gap:3px; }
+.demo-val { font-size:10px; font-weight:700; color:var(--green); white-space:nowrap; line-height:1; min-height:13px; }
+.demo-bar { width:18px; border-radius:3px 3px 0 0; transition:opacity .15s; }
+.demo-bar:hover { opacity:.75; }
+.demo-reach { background:#22c55e; }
+.demo-conv { background:#1877f2; }
+.demo-label { font-size:10px; color:var(--muted); margin-top:6px; text-align:center; }
+.demo-legend { display:flex; gap:16px; justify-content:center; margin-top:12px; }
+.demo-legend span { font-size:12px; color:var(--muted); display:flex; align-items:center; gap:5px; }
+.demo-legend i { display:inline-block; width:10px; height:10px; }
+
+/* Footer */
+.footer { border-top:1px solid var(--border); padding:28px 0; color:var(--muted); font-size:13px; }
+.footer-inner { max-width:1140px; margin:0 auto; padding:0 32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; word-break:break-word; }
+.footer strong {{ color:var(--accent); }}
+
+/* Botão exportar PDF */
+.export-btn {{ background:var(--accent); border:none; border-radius:10px; padding:7px 16px; cursor:pointer; font-size:13px; font-weight:700; color:#fff; display:flex; align-items:center; gap:6px; transition:opacity .2s; }}
+.export-btn:hover {{ opacity:.85; }}
+
+/* Print / PDF */
+@media print {{
+  @page {{ margin:1.2cm; size:A4; }}
+  .filter-bar, .export-btn, .theme-toggle {{ display:none !important; }}
+  body {{ background:#fff !important; color:#000 !important; font-size:11px !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }}
+  .header {{ background:#f0f4ff !important; border-radius:0 !important; -webkit-print-color-adjust:exact; }}
+  .header h1, .header h1 span {{ color:#000 !important; -webkit-text-fill-color:#000 !important; }}
+  .header-sub, .gen-date {{ color:#444 !important; }}
+  .kpi-card, .camp-card, .creative-card, .chart-card, .reel-card, .alert-card {{ break-inside:avoid; background:#fff !important; border:1px solid #ccc !important; box-shadow:none !important; }}
+  .section-title {{ color:#333 !important; }}
+  .section-title::after {{ background:#ccc !important; }}
+  .kpi-value {{ color:#000 !important; }}
+  .camp-grid, .creative-grid, .reels-grid {{ grid-template-columns:1fr 1fr !important; }}
+  .kpi-grid {{ grid-template-columns:repeat(4,1fr) !important; }}
+  .charts-row {{ grid-template-columns:2fr 1fr !important; }}
+  .demo-charts-row {{ grid-template-columns:1fr 1fr !important; }}
+  .css-bar {{ background:#5b7fff !important; -webkit-print-color-adjust:exact; }}
+  .camp-metrics {{ background:#f5f5f5 !important; }}
+  .camp-metric {{ background:#fff !important; }}
+  .action-box {{ background:#f5f5f5 !important; border:1px solid #ddd !important; }}
+  [style*="color:var(--green)"] {{ color:#16a34a !important; }}
+  [style*="color:var(--accent)"] {{ color:#3b5bdb !important; }}
+  .kpi-card.blue-card {{ background:#1877f2 !important; -webkit-print-color-adjust:exact; }}
+  .kpi-card.blue-card * {{ color:#fff !important; }}
+  .wrap {{ padding:0 8px !important; }}
+}}
+
+/* Filter bar */
+.filter-bar { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px 24px; margin-bottom:32px; box-shadow:var(--card-shadow); }
+.filter-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.filter-group { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.filter-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-right:4px; }
+.filter-btn { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:8px 16px; font-size:13px; font-weight:600; color:var(--text); cursor:pointer; transition:all .2s; font-family:inherit; }
+.filter-btn:hover { border-color:var(--accent); color:var(--accent); }
+.filter-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+.filter-date { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:8px 12px; font-size:13px; color:var(--text); font-family:inherit; color-scheme:dark; }
+[data-theme="light"] .filter-date { color-scheme:light; }
+.filter-info { display:flex; align-items:center; gap:16px; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); flex-wrap:wrap; }
+#period-display { font-size:16px; font-weight:800; color:var(--accent); }
+
+/* Responsive */
+@media(max-width:900px) {
+  .wrap { padding:0 16px; }
+  .charts-row,.camp-grid,.creative-grid,.reels-grid,.alerts-grid,.demo-charts-row { grid-template-columns:1fr; }
+  .header-inner { flex-direction:column; }
+  .header-right { align-items:flex-start; text-align:left; }
+  .camp-metrics { grid-template-columns:repeat(2,1fr); }
+  .filter-inner { flex-direction:column; align-items:flex-start; }
+  .totals-bar { flex-direction:column; gap:16px; padding:18px 20px; }
+  .adsets-table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+}
+@media(max-width:600px) {
+  .wrap { padding:0 12px; }
+  .header h1 { font-size:24px; }
+  .period-label { font-size:18px; }
+  .kpi-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .kpi-card { padding:16px 14px; }
+  .kpi-value { font-size:22px; }
+  .kpi-sub { font-size:11px; }
+  .conv-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .conv-card { padding:14px 12px; }
+  .conv-val { font-size:20px; }
+  .creative-metrics { grid-template-columns:repeat(2,1fr); }
+  .reel-metrics { grid-template-columns:repeat(2,1fr); }
+  .camp-actions { grid-template-columns:repeat(2,1fr); }
+  .camp-spend { font-size:20px; }
+  .camp-metric-value { font-size:16px; }
+  .camp-metric { padding:12px 10px; }
+  .section-title { font-size:11px; letter-spacing:1.2px; }
+  .filter-bar { padding:14px 16px; }
+  .filter-btn { padding:6px 12px; font-size:12px; }
+  .filter-date { padding:6px 8px; font-size:12px; }
+  .totals-value { font-size:26px; }
+  .cm-val { font-size:15px; }
+  .reel-metric-val { font-size:15px; }
+  .action-val { font-size:16px; }
+  .chart-card { padding:16px 12px; }
+  .alert-card { padding:14px 16px; }
+}
+@media(max-width:380px) {
+  .kpi-grid { grid-template-columns:1fr; }
+  .conv-grid { grid-template-columns:1fr; }
+  .camp-metrics { grid-template-columns:1fr 1fr; }
+  .camp-actions { grid-template-columns:1fr 1fr; }
+  .reel-metrics { grid-template-columns:1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <div class="chips">
+        <span class="chip agency">Potencializa Odonto</span>
+        <span class="chip meta">Meta Ads</span>
+        
+      </div>
+      <h1>CA <span>- Dental Clinic</span></h1>
+
+    </div>
+    <div class="header-right">
+      <div style="font-size:15px;font-weight:800;color:var(--text);">CA - Dental Clinic</div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="export-btn" onclick="exportPDF()" title="Exportar PDF">&#128196; Exportar PDF</button>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema"><span id="theme-icon">🌙</span></button>
+      </div>
+      <div class="gen-date">Gerado em 05/06/2026 &middot; Meta Graph API v21.0 &middot; 25 dias</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+<div class="wrap">
+
+  <!-- FILTRO DE PERÍODO -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <div class="filter-group">
+        <span class="filter-label">Período</span>
+        <button class="filter-btn" id="filter-7d" onclick="applyFilter('last_7d')">7 dias</button>
+        <button class="filter-btn" id="filter-14d" onclick="applyFilter('last_14d')">14 dias</button>
+        <button class="filter-btn active" id="filter-30d" onclick="applyFilter('last_30d')">30 dias</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUMO EXECUTIVO -->
+  <div class="section-title">Resumo Executivo <span id="kpi-period-label" style="font-weight:400;">&middot; Últimos 30 dias</span></div>
+
+  <!-- Linha 1: Valor investido | Alcance Total | Frequência | Impressões Totais -->
+  <div class="kpi-grid" style="margin-bottom:14px;">
+    <div class="kpi-card">
+      <div class="kpi-label">Valor investido</div>
+      <div class="kpi-value" id="kpi-val-spend" style="color:var(--accent);">R$ 12.126,18</div>
+      <div class="kpi-sub" id="kpi-sub-spend">~R$ 485,05/dia</div>
+    </div>
+    <div class="kpi-card g">
+      <div class="kpi-label">Alcance Total</div>
+      <div class="kpi-value" id="kpi-val-reach" style="color:var(--green);">145.120</div>
+      <div class="kpi-sub" id="kpi-sub-reach">pessoas únicas</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Frequência</div>
+      <div class="kpi-value" id="kpi-val-freq">3.84</div>
+      <div class="kpi-sub" id="kpi-sub-freq">média por pessoa</div>
+    </div>
+    <div class="kpi-card y">
+      <div class="kpi-label">Impressões Totais</div>
+      <div class="kpi-value" id="kpi-val-impressions">557.240</div>
+      <div class="kpi-sub" id="kpi-sub-impressions">exibições</div>
+    </div>
+  </div>
+
+  <!-- Linha 2: Total de cliques no link | CTR | Custo por Clique em Links | CPM médio -->
+  <div class="kpi-grid" style="margin-bottom:14px;">
+    <div class="kpi-card">
+      <div class="kpi-label">Total de cliques no link</div>
+      <div class="kpi-value" id="kpi-val-link-clicks">3.718</div>
+      <div class="kpi-sub" id="kpi-sub-link-clicks">10.949 cliques totais</div>
+    </div>
+    <div class="kpi-card g">
+      <div class="kpi-label">CTR (Taxa de cliques no link)</div>
+      <div class="kpi-value" id="kpi-val-ctr" style="color:var(--green);">0,67%</div>
+      <div class="kpi-sub" id="kpi-sub-ctr">taxa de clique</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Custo por Clique em Links</div>
+      <div class="kpi-value" id="kpi-val-cpc">R$ 3,26</div>
+      <div class="kpi-sub" id="kpi-sub-cpc">custo por clique</div>
+    </div>
+    <div class="kpi-card y">
+      <div class="kpi-label">CPM médio</div>
+      <div class="kpi-value" id="kpi-val-cpm">R$ 21,76</div>
+      <div class="kpi-sub" id="kpi-sub-cpm">custo por mil</div>
+    </div>
+  </div>
+
+  <!-- Linha 3: Conversas (cards azuis) -->
+  <div class="kpi-grid" style="margin-bottom:40px;">
+    <div class="kpi-card blue-card">
+      <div class="kpi-label">Conversas iniciadas por mensagem</div>
+      <div class="kpi-value" id="kpi-val-dms">612</div>
+      <div class="kpi-sub"></div>
+    </div>
+    <div class="kpi-card blue-card">
+      <div class="kpi-label">Conversas iniciadas por mensagem (Instagram)</div>
+      <div class="kpi-value">156</div>
+      <div class="kpi-sub"></div>
+    </div>
+    <div class="kpi-card blue-card">
+      <div class="kpi-label">Conversas iniciadas por mensagem (Facebook)</div>
+      <div class="kpi-value">455</div>
+      <div class="kpi-sub"></div>
+    </div>
+    <div class="kpi-card blue-card">
+      <div class="kpi-label">Custo por conversas iniciadas por mensagem</div>
+      <div class="kpi-value" id="kpi-val-cpm-conversa">R$ 19,81</div>
+      <div class="kpi-sub"></div>
+    </div>
+  </div>
+
+
+  <!-- CAMPANHAS -->
+  <div class="section-title">Performance por Campanha &middot; <span id="camp-count">6</span> campanhas</div>
+  <div class="camp-grid" id="campCardsContainer"></div>
+
+  <!-- GRÁFICOS DEMOGRÁFICOS -->
+  <div class="section-title">Alcance e Conversas por Audiência</div>
+  <div id="demo-7d" style="display:none"><div class="demo-charts-row"><div class="demo-chart">
+      <h3>Alcance por idade e Conversas iniciadas</h3>
+      <div class="demo-bars">
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">5.798</div>
+              <div class="demo-bar demo-reach" style="height:52px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">2</div>
+              <div class="demo-bar demo-conv" style="height:5px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">25-34</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">8.623</div>
+              <div class="demo-bar demo-reach" style="height:77px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">23</div>
+              <div class="demo-bar demo-conv" style="height:66px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">35-44</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">17.716</div>
+              <div class="demo-bar demo-reach" style="height:160px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">55</div>
+              <div class="demo-bar demo-conv" style="height:160px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">45-54</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">13.548</div>
+              <div class="demo-bar demo-reach" style="height:122px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">34</div>
+              <div class="demo-bar demo-conv" style="height:98px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">55-64</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">7.630</div>
+              <div class="demo-bar demo-reach" style="height:68px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">22</div>
+              <div class="demo-bar demo-conv" style="height:64px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">65+</div>
+        </div></div>
+      <div class="demo-legend">
+        <span><i style="background:#22c55e;border-radius:2px;"></i> Alcance</span>
+        <span><i style="background:#1877f2;border-radius:2px;"></i> Conversas iniciadas por mensagem</span>
+      </div>
+    </div><div class="demo-chart">
+      <h3>Alcance por gênero e Conversas iniciadas</h3>
+      <div class="demo-bars">
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">31.742</div>
+              <div class="demo-bar demo-reach" style="height:160px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">94</div>
+              <div class="demo-bar demo-conv" style="height:160px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Feminino</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">21.291</div>
+              <div class="demo-bar demo-reach" style="height:107px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">42</div>
+              <div class="demo-bar demo-conv" style="height:71px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Masculino</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">118</div>
+              <div class="demo-bar demo-reach" style="height:4px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;"></div>
+              <div class="demo-bar demo-conv" style="height:4px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Desconhecido</div>
+        </div></div>
+      <div class="demo-legend">
+        <span><i style="background:#22c55e;border-radius:2px;"></i> Alcance</span>
+        <span><i style="background:#1877f2;border-radius:2px;"></i> Conversas iniciadas por mensagem</span>
+      </div>
+    </div></div></div>
+  <div id="demo-14d" style="display:none"><div class="demo-charts-row"><div class="demo-chart">
+      <h3>Alcance por idade e Conversas iniciadas</h3>
+      <div class="demo-bars">
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">11.079</div>
+              <div class="demo-bar demo-reach" style="height:65px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">8</div>
+              <div class="demo-bar demo-conv" style="height:13px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">25-34</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">16.355</div>
+              <div class="demo-bar demo-reach" style="height:97px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">44</div>
+              <div class="demo-bar demo-conv" style="height:76px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">35-44</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">26.954</div>
+              <div class="demo-bar demo-reach" style="height:160px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">92</div>
+              <div class="demo-bar demo-conv" style="height:160px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">45-54</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">21.011</div>
+              <div class="demo-bar demo-reach" style="height:124px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">74</div>
+              <div class="demo-bar demo-conv" style="height:128px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">55-64</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">12.631</div>
+              <div class="demo-bar demo-reach" style="height:74px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">45</div>
+              <div class="demo-bar demo-conv" style="height:78px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">65+</div>
+        </div></div>
+      <div class="demo-legend">
+        <span><i style="background:#22c55e;border-radius:2px;"></i> Alcance</span>
+        <span><i style="background:#1877f2;border-radius:2px;"></i> Conversas iniciadas por mensagem</span>
+      </div>
+    </div><div class="demo-chart">
+      <h3>Alcance por gênero e Conversas iniciadas</h3>
+      <div class="demo-bars">
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">51.131</div>
+              <div class="demo-bar demo-reach" style="height:160px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">184</div>
+              <div class="demo-bar demo-conv" style="height:160px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Feminino</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">34.454</div>
+              <div class="demo-bar demo-reach" style="height:107px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">79</div>
+              <div class="demo-bar demo-conv" style="height:68px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Masculino</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">190</div>
+              <div class="demo-bar demo-reach" style="height:4px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;"></div>
+              <div class="demo-bar demo-conv" style="height:4px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Desconhecido</div>
+        </div></div>
+      <div class="demo-legend">
+        <span><i style="background:#22c55e;border-radius:2px;"></i> Alcance</span>
+        <span><i style="background:#1877f2;border-radius:2px;"></i> Conversas iniciadas por mensagem</span>
+      </div>
+    </div></div></div>
+  <div id="demo-30d"><div class="demo-charts-row"><div class="demo-chart">
+      <h3>Alcance por idade e Conversas iniciadas</h3>
+      <div class="demo-bars">
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">21.563</div>
+              <div class="demo-bar demo-reach" style="height:78px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">29</div>
+              <div class="demo-bar demo-conv" style="height:22px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">25-34</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">30.645</div>
+              <div class="demo-bar demo-reach" style="height:111px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">104</div>
+              <div class="demo-bar demo-conv" style="height:79px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">35-44</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">44.079</div>
+              <div class="demo-bar demo-reach" style="height:160px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">209</div>
+              <div class="demo-bar demo-conv" style="height:160px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">45-54</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">31.952</div>
+              <div class="demo-bar demo-reach" style="height:115px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">167</div>
+              <div class="demo-bar demo-conv" style="height:127px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">55-64</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">20.525</div>
+              <div class="demo-bar demo-reach" style="height:74px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">102</div>
+              <div class="demo-bar demo-conv" style="height:78px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">65+</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">1</div>
+              <div class="demo-bar demo-reach" style="height:4px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">1</div>
+              <div class="demo-bar demo-conv" style="height:4px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Unknown</div>
+        </div></div>
+      <div class="demo-legend">
+        <span><i style="background:#22c55e;border-radius:2px;"></i> Alcance</span>
+        <span><i style="background:#1877f2;border-radius:2px;"></i> Conversas iniciadas por mensagem</span>
+      </div>
+    </div><div class="demo-chart">
+      <h3>Alcance por gênero e Conversas iniciadas</h3>
+      <div class="demo-bars">
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">82.471</div>
+              <div class="demo-bar demo-reach" style="height:160px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">408</div>
+              <div class="demo-bar demo-conv" style="height:160px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Feminino</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">62.613</div>
+              <div class="demo-bar demo-reach" style="height:121px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">202</div>
+              <div class="demo-bar demo-conv" style="height:79px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Masculino</div>
+        </div>
+        <div class="demo-group">
+          <div class="demo-group-bars">
+            <div class="demo-bar-wrap">
+              <div class="demo-val">341</div>
+              <div class="demo-bar demo-reach" style="height:4px;"></div>
+            </div>
+            <div class="demo-bar-wrap">
+              <div class="demo-val" style="color:#60a5fa;">2</div>
+              <div class="demo-bar demo-conv" style="height:4px;"></div>
+            </div>
+          </div>
+          <div class="demo-label">Desconhecido</div>
+        </div></div>
+      <div class="demo-legend">
+        <span><i style="background:#22c55e;border-radius:2px;"></i> Alcance</span>
+        <span><i style="background:#1877f2;border-radius:2px;"></i> Conversas iniciadas por mensagem</span>
+      </div>
+    </div></div></div>
+
+  <!-- CRIATIVOS -->
+  <div class="section-title">Melhores Criativos &middot; 10 de 50 anúncios &middot; por resultado</div>
+  <div style="font-size:12px;color:var(--muted);margin:-12px 0 16px;padding:8px 14px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--accent);">
+    Os valores por anúncio refletem a <strong>atribuição individual</strong> do Meta — a soma dos criativos pode ser maior que o total da conta, pois a mesma conversão pode ser atribuída a mais de um anúncio simultaneamente (comportamento padrão da API Meta).
+  </div>
+  <div class="creative-grid">
+    
+    <div class="creative-card" data-ad-id="120239079724770094">
+      <div class="creative-header">
+        <div class="camp-path">01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO] › 23-01-26 PUBLICO QUENTE - ENGAJOU FC e IG + VV 75% VIDEOS TOPO DE FUNIL</div>
+        <div class="ad-name">AD-VD FORMAS DE PAG 02 <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 1.335,24</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">9.563</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">56</div><div class="cm-label" id="ad-res-label-120239079724770094">Conversas iniciadas</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">1,99%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">41.788 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:3.6%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">1.497</span>
+            <span class="ret-pct">3.6%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.6%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">1.095</span>
+            <span class="ret-pct">2.6%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.0%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">776</span>
+            <span class="ret-pct">1.9%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.0%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">473</span>
+            <span class="ret-pct">1.1%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120239079646040094">
+      <div class="creative-header">
+        <div class="camp-path">02 [RISE] [QUENTE] SUZANO/IMPLANTE [ENG] [ABO] › 23-01-26 PUBLICO QUENTE - ENGAJOU FC e IG + VV 75% VIDEOS TOPO DE FUNIL</div>
+        <div class="ad-name">AD-VD FORMAS DE PAG 02 <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 1.187,97</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">9.045</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">52</div><div class="cm-label" id="ad-res-label-120239079646040094">Conversas iniciadas</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">2,02%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">36.936 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:4.0%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">1.459</span>
+            <span class="ret-pct">4.0%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.7%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">981</span>
+            <span class="ret-pct">2.7%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.0%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">689</span>
+            <span class="ret-pct">1.9%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.0%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">449</span>
+            <span class="ret-pct">1.2%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120236819570630094">
+      <div class="creative-header">
+        <div class="camp-path">02 [RISE] [QUENTE] SUZANO/IMPLANTE [ENG] [ABO] › 23-01-26 PUBLICO SEGMENTADO IDADE / SUZANO / FCeIG</div>
+        <div class="ad-name">AD-VD RESULTADO 107 — Cópia <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 23,19</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">1.093</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">12</div><div class="cm-label" id="ad-res-label-120236819570630094">Cliques no link</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">2,47%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">1.175 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:14.0%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">165</span>
+            <span class="ret-pct">14.0%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:10.0%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">118</span>
+            <span class="ret-pct">10.0%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:8.3%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">97</span>
+            <span class="ret-pct">8.3%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:3.8%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">45</span>
+            <span class="ret-pct">3.8%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120237650015240094">
+      <div class="creative-header">
+        <div class="camp-path">01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO] › 23-01-26 PUBLICO QUENTE - ENGAJOU FC e IG + VV 75% VIDEOS TOPO DE FUNIL</div>
+        <div class="ad-name">AD-VD DEPOIMENTO <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 28,11</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">925</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">8</div><div class="cm-label" id="ad-res-label-120237650015240094">Cliques no link</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">3,35%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">1.315 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:6.2%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">81</span>
+            <span class="ret-pct">6.2%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:4.3%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">56</span>
+            <span class="ret-pct">4.3%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.6%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">34</span>
+            <span class="ret-pct">2.6%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.0%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">6</span>
+            <span class="ret-pct">0.5%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120239080235250094">
+      <div class="creative-header">
+        <div class="camp-path">02 [RISE] [QUENTE] SUZANO/IMPLANTE [ENG] [ABO] › 23-01-26 PUBLICO QUENTE - ENGAJOU FC e IG + VV 75% VIDEOS TOPO DE FUNIL</div>
+        <div class="ad-name">AD-VD Fica até o final que eu... <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 42,72</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">1.126</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">6</div><div class="cm-label" id="ad-res-label-120239080235250094">Cliques no link</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">1,40%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">1.571 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:4.0%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">63</span>
+            <span class="ret-pct">4.0%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:3.2%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">51</span>
+            <span class="ret-pct">3.2%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.6%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">41</span>
+            <span class="ret-pct">2.6%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.0%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">17</span>
+            <span class="ret-pct">1.1%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120236819459400094">
+      <div class="creative-header">
+        <div class="camp-path">01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO] › 23-01-26 PUBLICO SEGMENTADO IDADE / SUZANO / FCeIG</div>
+        <div class="ad-name">AD-VD RESULTADO 107 — Cópia <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 32,33</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">1.444</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">5</div><div class="cm-label" id="ad-res-label-120236819459400094">Conversas iniciadas</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">2,62%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">1.644 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:12.8%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">210</span>
+            <span class="ret-pct">12.8%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:9.5%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">157</span>
+            <span class="ret-pct">9.5%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:8.0%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">132</span>
+            <span class="ret-pct">8.0%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:3.8%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">62</span>
+            <span class="ret-pct">3.8%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120236819459410094">
+      <div class="creative-header">
+        <div class="camp-path">01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO] › 23-01-26 Público Advantage+ / FCEIG / 40+</div>
+        <div class="ad-name">AD-VD RESULTADO 107 <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 33,06</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">1.951</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">5</div><div class="cm-label" id="ad-res-label-120236819459410094">Conversas iniciadas</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">2,92%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">2.023 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:11.8%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">239</span>
+            <span class="ret-pct">11.8%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:8.2%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">166</span>
+            <span class="ret-pct">8.2%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:7.0%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">141</span>
+            <span class="ret-pct">7.0%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.9%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">59</span>
+            <span class="ret-pct">2.9%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120236819570310094">
+      <div class="creative-header">
+        <div class="camp-path">02 [RISE] [QUENTE] SUZANO/IMPLANTE [ENG] [ABO] › 23-01-26 Público Advantage+ / FCEIG / 40+</div>
+        <div class="ad-name">AD-VD RESULTADO 107 — Cópia <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 4,59</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">298</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">4</div><div class="cm-label" id="ad-res-label-120236819570310094">Cliques no link</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">2,92%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">308 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:11.4%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">35</span>
+            <span class="ret-pct">11.4%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:8.8%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">27</span>
+            <span class="ret-pct">8.8%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:7.8%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">24</span>
+            <span class="ret-pct">7.8%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:3.2%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">10</span>
+            <span class="ret-pct">3.2%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120239079724780094">
+      <div class="creative-header">
+        <div class="camp-path">01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO] › 23-01-26 PUBLICO QUENTE - ENGAJOU FC e IG + VV 75% VIDEOS TOPO DE FUNIL</div>
+        <div class="ad-name">AD-VD É possivel dormir durante a cirurgia... <span class="status-badge paused">UNKNOWN</span></div>
+      </div>
+      <div class="creative-body">
+        
+        <div class="creative-caption">""</div>
+        
+        <div class="creative-links"></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 19,17</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">681</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">3</div><div class="cm-label" id="ad-res-label-120239079724780094">Cliques no link</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">1,91%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">837 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:7.2%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">60</span>
+            <span class="ret-pct">7.2%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:5.4%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">45</span>
+            <span class="ret-pct">5.4%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:4.5%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">38</span>
+            <span class="ret-pct">4.5%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.0%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">14</span>
+            <span class="ret-pct">1.7%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="creative-card" data-ad-id="120239080204290094">
+      <div class="creative-header">
+        <div class="camp-path">01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO] › 23-01-26 PUBLICO QUENTE - ENGAJOU FC e IG + VV 75% VIDEOS TOPO DE FUNIL</div>
+        <div class="ad-name">AD-VD Fica até o final que eu... <span class="status-badge paused">Pausado</span></div>
+      </div>
+      <div class="creative-body">
+        <img class="creative-thumb" src="https://scontent.fgyn23-1.fna.fbcdn.net/v/t15.5256-10/647441157_1466942301490077_4788823968174053411_n.jpg?_nc_cat=104&ccb=1-7&_nc_ohc=UBF5E7Q7rL0Q7kNvwHjGg32&_nc_oc=AdplugPHzp2RYJcwdI5-RqsYbetxyU46E9OEKnkd678-4us8vIwK8bLHVlYoi5pqHnn42RXfOG2bUzTs2u9wwfO0&_nc_zt=23&_nc_ht=scontent.fgyn23-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=EV5PZKRYW9RjXGoM8gmeYg&_nc_tpa=Q5bMBQHQraV66IPi9GWwy6E2iqNbLkEjzZfdsbVnQjdqGTlmhbvyZa1C_nuKorHt0orpT2HtjtuIJTxGBg&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=5fad0e&_nc_sid=58080a&oh=00_Af_QLdKzrQ28c367XpCTtz6bgjP2m51uVvgD8aUm4dFAmw&oe=6A28A80A" alt="Criativo" onerror="this.style.display='none'">
+        <div class="creative-caption">"Antes de transformar um sorriso… existe todo um planejamento por trás. 🦷✨"</div>
+        <div style="font-size:12px;color:var(--accent);font-weight:700;margin-bottom:8px;">CTA: Whatsapp Message</div>
+        <div class="creative-links"><a href="https://www.facebook.com/106787600862063/posts/1578163330980965" target="_blank" style="color:#1877f2;">Ver no Facebook ↗</a><a href="https://www.instagram.com/p/DVwMoXEDFeH/" target="_blank" style="color:#e1306c;">Ver no Instagram ↗</a></div>
+      </div>
+      <div class="creative-metrics">
+        <div class="cm-item"><div class="cm-val" data-ad-metric="spend" style="color:var(--accent);">R$ 17,55</div><div class="cm-label">Gasto</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="reach">579</div><div class="cm-label">Alcance</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="resultado" style="color:var(--green);">3</div><div class="cm-label" id="ad-res-label-120239080204290094">Cliques no link</div></div>
+        <div class="cm-item"><div class="cm-val" data-ad-metric="ctr" style="color:var(--accent2);">2,67%</div><div class="cm-label">CTR</div></div>
+      </div>
+      
+      <div class="retention-funnel">
+        <div class="retention-title">Retenção de Vídeo</div>
+        <div class="ret-subtitle">711 impressões totais</div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 25%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:4.6%;background:#6c5ce7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">33</span>
+            <span class="ret-pct">4.6%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 50%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:3.9%;background:#a855f7;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">28</span>
+            <span class="ret-pct">3.9%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 75%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:3.5%;background:#f59e0b;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">25</span>
+            <span class="ret-pct">3.5%</span>
+          </div>
+        </div>
+        
+        <div class="ret-row">
+          <div class="ret-row-label">Assistiram 100%</div>
+          <div class="ret-row-bar-wrap">
+            <div class="ret-row-bar" style="width:2.0%;background:#22c55e;"></div>
+          </div>
+          <div class="ret-row-nums">
+            <span class="ret-count">7</span>
+            <span class="ret-pct">1.0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <div><strong>CA - Dental Clinic</strong> &middot; Potencializa Odonto &middot; Meta Ads</div>
+    <div style="text-align:right;">
+      Dados: Meta Graph API v21.0 &middot; Gerado em 05/06/2026<br>
+      6 Mai – 4 Jun 2026 &middot; 25 dias &middot; 6 campanhas  
+    </div>
+  </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+// ═══ DADOS EMBARCADOS PARA FILTRO INTERATIVO ═══
+const DAILY_DATA = [{"date": "2026-05-06", "spend": 438.95, "impressions": 24097, "clicks": 414, "reach": 16781, "link_clicks": 151, "video_views": 6012, "saves": 1, "dms": 37, "leads": 0, "reactions": 87, "comments_count": 4, "landing_page_views": 0}, {"date": "2026-05-07", "spend": 399.23, "impressions": 22464, "clicks": 410, "reach": 16114, "link_clicks": 130, "video_views": 5859, "saves": 0, "dms": 23, "leads": 0, "reactions": 110, "comments_count": 6, "landing_page_views": 0}, {"date": "2026-05-08", "spend": 364.85, "impressions": 20759, "clicks": 380, "reach": 15027, "link_clicks": 130, "video_views": 5423, "saves": 1, "dms": 18, "leads": 0, "reactions": 88, "comments_count": 8, "landing_page_views": 0}, {"date": "2026-05-09", "spend": 446.85, "impressions": 25276, "clicks": 440, "reach": 19108, "link_clicks": 195, "video_views": 6292, "saves": 0, "dms": 27, "leads": 0, "reactions": 81, "comments_count": 8, "landing_page_views": 0}, {"date": "2026-05-10", "spend": 317.69, "impressions": 18419, "clicks": 275, "reach": 13534, "link_clicks": 105, "video_views": 4176, "saves": 1, "dms": 17, "leads": 0, "reactions": 62, "comments_count": 5, "landing_page_views": 0}, {"date": "2026-05-11", "spend": 87.88, "impressions": 3685, "clicks": 71, "reach": 3120, "link_clicks": 25, "video_views": 943, "saves": 0, "dms": 9, "leads": 0, "reactions": 24, "comments_count": 2, "landing_page_views": 0}, {"date": "2026-05-12", "spend": 500.54, "impressions": 24350, "clicks": 468, "reach": 17856, "link_clicks": 146, "video_views": 6377, "saves": 0, "dms": 22, "leads": 0, "reactions": 85, "comments_count": 8, "landing_page_views": 0}, {"date": "2026-05-13", "spend": 557.4, "impressions": 23975, "clicks": 542, "reach": 16597, "link_clicks": 204, "video_views": 6247, "saves": 2, "dms": 27, "leads": 0, "reactions": 110, "comments_count": 10, "landing_page_views": 0}, {"date": "2026-05-14", "spend": 435.27, "impressions": 19080, "clicks": 377, "reach": 13591, "link_clicks": 127, "video_views": 4653, "saves": 2, "dms": 27, "leads": 0, "reactions": 69, "comments_count": 10, "landing_page_views": 0}, {"date": "2026-05-15", "spend": 426.77, "impressions": 21881, "clicks": 359, "reach": 16192, "link_clicks": 106, "video_views": 5483, "saves": 2, "dms": 23, "leads": 0, "reactions": 78, "comments_count": 6, "landing_page_views": 0}, {"date": "2026-05-16", "spend": 454.31, "impressions": 21731, "clicks": 398, "reach": 15520, "link_clicks": 145, "video_views": 5394, "saves": 0, "dms": 20, "leads": 0, "reactions": 88, "comments_count": 12, "landing_page_views": 0}, {"date": "2026-05-17", "spend": 340.03, "impressions": 14790, "clicks": 306, "reach": 10964, "link_clicks": 121, "video_views": 3950, "saves": 0, "dms": 18, "leads": 0, "reactions": 60, "comments_count": 6, "landing_page_views": 0}, {"date": "2026-05-18", "spend": 351.77, "impressions": 15434, "clicks": 299, "reach": 11617, "link_clicks": 97, "video_views": 4073, "saves": 2, "dms": 14, "leads": 0, "reactions": 47, "comments_count": 2, "landing_page_views": 0}, {"date": "2026-05-19", "spend": 531.43, "impressions": 23256, "clicks": 481, "reach": 16840, "link_clicks": 145, "video_views": 6199, "saves": 5, "dms": 24, "leads": 0, "reactions": 78, "comments_count": 6, "landing_page_views": 0}, {"date": "2026-05-20", "spend": 416.74, "impressions": 18169, "clicks": 392, "reach": 12786, "link_clicks": 126, "video_views": 4632, "saves": 0, "dms": 19, "leads": 0, "reactions": 88, "comments_count": 11, "landing_page_views": 0}, {"date": "2026-05-21", "spend": 390.16, "impressions": 18219, "clicks": 404, "reach": 13132, "link_clicks": 130, "video_views": 4608, "saves": 3, "dms": 24, "leads": 0, "reactions": 79, "comments_count": 12, "landing_page_views": 0}, {"date": "2026-05-22", "spend": 346.35, "impressions": 15875, "clicks": 278, "reach": 11364, "link_clicks": 80, "video_views": 4043, "saves": 0, "dms": 12, "leads": 0, "reactions": 67, "comments_count": 3, "landing_page_views": 0}, {"date": "2026-05-23", "spend": 397.29, "impressions": 18352, "clicks": 392, "reach": 13304, "link_clicks": 142, "video_views": 4805, "saves": 1, "dms": 28, "leads": 0, "reactions": 79, "comments_count": 5, "landing_page_views": 0}, {"date": "2026-05-24", "spend": 309.47, "impressions": 15989, "clicks": 308, "reach": 12464, "link_clicks": 117, "video_views": 4047, "saves": 2, "dms": 12, "leads": 0, "reactions": 59, "comments_count": 5, "landing_page_views": 0}, {"date": "2026-05-25", "spend": 399.35, "impressions": 16091, "clicks": 326, "reach": 12073, "link_clicks": 115, "video_views": 4360, "saves": 2, "dms": 14, "leads": 0, "reactions": 60, "comments_count": 7, "landing_page_views": 0}, {"date": "2026-05-26", "spend": 514.75, "impressions": 18557, "clicks": 388, "reach": 13991, "link_clicks": 155, "video_views": 5161, "saves": 2, "dms": 25, "leads": 0, "reactions": 80, "comments_count": 7, "landing_page_views": 0}, {"date": "2026-05-27", "spend": 501.93, "impressions": 20108, "clicks": 433, "reach": 13215, "link_clicks": 140, "video_views": 5202, "saves": 3, "dms": 25, "leads": 0, "reactions": 95, "comments_count": 9, "landing_page_views": 0}, {"date": "2026-05-28", "spend": 375.47, "impressions": 16853, "clicks": 317, "reach": 12241, "link_clicks": 93, "video_views": 4232, "saves": 2, "dms": 11, "leads": 0, "reactions": 74, "comments_count": 4, "landing_page_views": 0}, {"date": "2026-05-29", "spend": 423.38, "impressions": 19001, "clicks": 440, "reach": 13267, "link_clicks": 142, "video_views": 4909, "saves": 2, "dms": 29, "leads": 0, "reactions": 94, "comments_count": 4, "landing_page_views": 0}, {"date": "2026-05-30", "spend": 305.94, "impressions": 13599, "clicks": 301, "reach": 8835, "link_clicks": 101, "video_views": 3563, "saves": 1, "dms": 20, "leads": 0, "reactions": 97, "comments_count": 7, "landing_page_views": 0}];
+const ANTERIOR_ACCOUNT = {"spend": 11743.65, "impressions": 629621, "clicks": 13371, "reach": 178565, "ctr": 2.123659, "cpc": 0.878293, "cpm": 18.651935};
+const FULL_PERIOD = { since: '2026-05-06', until: '2026-06-04', dias: 30 };
+const CAMPS_DATA = {"last_7d": [{"campaign_name": "[RISE] TRAFEGO PARA O PERFIL", "spend": 70.25, "reach": 5760, "ctr": 2.44, "cpc": 0.42, "frequency": 1.190625, "actions": [{"action_type": "page_engagement", "value": "1471", "1d_view": "1291"}, {"action_type": "post_engagement", "value": "1471", "1d_view": "1291"}, {"action_type": "video_view", "value": "1291", "1d_view": "1291"}, {"action_type": "link_click", "value": "167"}, {"action_type": "post_reaction", "value": "12"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "1"}, {"action_type": "onsite_conversion.post_unlike", "value": "1"}, {"action_type": "post_interaction_gross", "value": "13"}, {"action_type": "post_interaction_net", "value": "14"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "1"}, {"action_type": "onsite_conversion.post_save", "value": "1"}, {"action_type": "onsite_conversion.post_net_save", "value": "1"}, {"action_type": "onsite_conversion.post_net_like", "value": "11"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "1"}, {"action_type": "onsite_conversion.messaging_conversation_replied_7d", "value": "1"}], "objective": "OUTCOME_TRAFFIC"}, {"campaign_name": "[RISE] [BRANDING] ENGAJAMENTO COM A PUBLICAÇÃO", "spend": 70.71, "reach": 9377, "ctr": 0.0, "cpc": 0, "frequency": 1.204756, "actions": [{"action_type": "page_engagement", "value": "4787", "1d_view": "4739"}, {"action_type": "post_engagement", "value": "4787", "1d_view": "4739"}, {"action_type": "video_view", "value": "4751", "1d_view": "4739"}, {"action_type": "post_reaction", "value": "34"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "1"}, {"action_type": "onsite_conversion.post_unlike", "value": "1"}, {"action_type": "post_interaction_gross", "value": "36"}, {"action_type": "post_interaction_net", "value": "37"}, {"action_type": "post", "value": "1"}, {"action_type": "onsite_conversion.post_save", "value": "1"}, {"action_type": "onsite_conversion.post_net_save", "value": "1"}, {"action_type": "onsite_conversion.post_net_like", "value": "33"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO]", "spend": 477.78, "reach": 5812, "ctr": 0.83, "cpc": 4.15, "frequency": 2.388679, "actions": [{"action_type": "page_engagement", "value": "2554", "1d_view": "2316"}, {"action_type": "post_engagement", "value": "2553", "1d_view": "2316"}, {"action_type": "video_view", "value": "2321", "1d_view": "2316"}, {"action_type": "link_click", "value": "115"}, {"action_type": "post_reaction", "value": "103"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "19"}, {"action_type": "onsite_conversion.post_unlike", "value": "3"}, {"action_type": "like", "value": "1"}, {"action_type": "post_interaction_gross", "value": "117"}, {"action_type": "comment", "value": "8"}, {"action_type": "post_interaction_net", "value": "120"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "8"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "15"}, {"action_type": "post", "value": "4"}, {"action_type": "onsite_conversion.post_save", "value": "2"}, {"action_type": "onsite_conversion.post_net_comment", "value": "8"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "6"}, {"action_type": "onsite_conversion.post_net_save", "value": "2"}, {"action_type": "onsite_conversion.post_net_like", "value": "100"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "20"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "16"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "02 [RISE] [QUENTE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 453.79, "reach": 5395, "ctr": 0.67, "cpc": 5.1, "frequency": 2.468767, "actions": [{"action_type": "page_engagement", "value": "2242", "1d_view": "2069"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "2", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "16", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "10", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "14", "1d_view": "2"}, {"action_type": "post_engagement", "value": "2242", "1d_view": "2069"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "29", "1d_view": "2"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "20", "1d_view": "2"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "22", "1d_view": "2"}, {"action_type": "video_view", "value": "2078", "1d_view": "2069"}, {"action_type": "link_click", "value": "89"}, {"action_type": "post_reaction", "value": "68"}, {"action_type": "onsite_conversion.post_unlike", "value": "2"}, {"action_type": "post_interaction_gross", "value": "75"}, {"action_type": "comment", "value": "4"}, {"action_type": "post_interaction_net", "value": "77"}, {"action_type": "post", "value": "2"}, {"action_type": "onsite_conversion.post_save", "value": "1"}, {"action_type": "onsite_conversion.post_net_comment", "value": "4"}, {"action_type": "onsite_conversion.post_net_save", "value": "1"}, {"action_type": "onsite_conversion.post_net_like", "value": "66"}, {"action_type": "onsite_conversion.messaging_conversation_replied_7d", "value": "1"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "02 [RISE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 891.07, "reach": 24628, "ctr": 0.47, "cpc": 4.59, "frequency": 1.672649, "actions": [{"action_type": "page_engagement", "value": "12724", "1d_view": "12278"}, {"action_type": "post_engagement", "value": "12724", "1d_view": "12278"}, {"action_type": "video_view", "value": "12313", "1d_view": "12278"}, {"action_type": "link_click", "value": "194"}, {"action_type": "post_reaction", "value": "199"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "62"}, {"action_type": "onsite_conversion.post_unlike", "value": "2"}, {"action_type": "post_interaction_gross", "value": "217"}, {"action_type": "comment", "value": "14"}, {"action_type": "post_interaction_net", "value": "219"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "32"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "49"}, {"action_type": "post", "value": "1"}, {"action_type": "onsite_conversion.post_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_comment", "value": "14"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "17"}, {"action_type": "onsite_conversion.post_net_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_like", "value": "197"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "23"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "51"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "01 [RISE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 858.1, "reach": 21504, "ctr": 0.69, "cpc": 3.76, "frequency": 1.547573, "actions": [{"action_type": "page_engagement", "value": "10192", "1d_view": "9697"}, {"action_type": "post_engagement", "value": "10190", "1d_view": "9697"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "50", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "45", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "46", "1d_view": "1"}, {"action_type": "video_view", "value": "9729", "1d_view": "9697"}, {"action_type": "link_click", "value": "228"}, {"action_type": "post_reaction", "value": "215"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "2"}, {"action_type": "onsite_conversion.post_unlike", "value": "2"}, {"action_type": "like", "value": "2"}, {"action_type": "post_interaction_gross", "value": "233"}, {"action_type": "comment", "value": "10"}, {"action_type": "post_interaction_net", "value": "235"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "22"}, {"action_type": "post", "value": "8"}, {"action_type": "onsite_conversion.post_net_comment", "value": "10"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "12"}, {"action_type": "onsite_conversion.post_net_like", "value": "213"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "28"}], "objective": "OUTCOME_ENGAGEMENT"}], "last_14d": [{"campaign_name": "[RISE] TRAFEGO PARA O PERFIL", "spend": 138.14, "reach": 9713, "ctr": 2.53, "cpc": 0.43, "frequency": 1.320498, "actions": [{"action_type": "page_engagement", "value": "2898", "1d_view": "2545"}, {"action_type": "post_engagement", "value": "2898", "1d_view": "2545"}, {"action_type": "video_view", "value": "2547", "1d_view": "2545"}, {"action_type": "onsite_conversion.messaging_block", "value": "1"}, {"action_type": "link_click", "value": "325"}, {"action_type": "post_reaction", "value": "24"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "1"}, {"action_type": "onsite_conversion.post_unlike", "value": "4"}, {"action_type": "post_interaction_gross", "value": "26"}, {"action_type": "post_interaction_net", "value": "30"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "1"}, {"action_type": "onsite_conversion.post_save", "value": "2"}, {"action_type": "onsite_conversion.post_net_save", "value": "2"}, {"action_type": "onsite_conversion.post_net_like", "value": "20"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "1"}, {"action_type": "onsite_conversion.messaging_conversation_replied_7d", "value": "1"}], "objective": "OUTCOME_TRAFFIC"}, {"campaign_name": "[RISE] [BRANDING] ENGAJAMENTO COM A PUBLICAÇÃO", "spend": 140.43, "reach": 16810, "ctr": 0.0, "cpc": 0, "frequency": 1.348186, "actions": [{"action_type": "page_engagement", "value": "9398", "1d_view": "9298"}, {"action_type": "post_engagement", "value": "9398", "1d_view": "9298"}, {"action_type": "video_view", "value": "9312", "1d_view": "9298"}, {"action_type": "post_reaction", "value": "80"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "1"}, {"action_type": "onsite_conversion.post_unlike", "value": "3"}, {"action_type": "post_interaction_gross", "value": "86"}, {"action_type": "comment", "value": "2"}, {"action_type": "post_interaction_net", "value": "89"}, {"action_type": "post", "value": "2"}, {"action_type": "onsite_conversion.post_save", "value": "2"}, {"action_type": "onsite_conversion.post_net_comment", "value": "2"}, {"action_type": "onsite_conversion.post_net_save", "value": "2"}, {"action_type": "onsite_conversion.post_net_like", "value": "77"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO]", "spend": 1841.16, "reach": 27303, "ctr": 0.73, "cpc": 3.99, "frequency": 2.305681, "actions": [{"action_type": "page_engagement", "value": "16221", "1d_view": "15327"}, {"action_type": "post_engagement", "value": "16216", "1d_view": "15327"}, {"action_type": "video_view", "value": "15371", "1d_view": "15327"}, {"action_type": "link_click", "value": "461"}, {"action_type": "post_reaction", "value": "339"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "2"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "111"}, {"action_type": "onsite_conversion.post_unlike", "value": "11"}, {"action_type": "like", "value": "5"}, {"action_type": "post_interaction_gross", "value": "384"}, {"action_type": "comment", "value": "28"}, {"action_type": "post_interaction_net", "value": "396"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "57"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "68"}, {"action_type": "post", "value": "7"}, {"action_type": "onsite_conversion.post_unsave", "value": "1"}, {"action_type": "onsite_conversion.post_save", "value": "10"}, {"action_type": "onsite_conversion.post_net_comment", "value": "28"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "40"}, {"action_type": "onsite_conversion.post_net_save", "value": "9"}, {"action_type": "onsite_conversion.post_net_like", "value": "328"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "82"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "86"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "02 [RISE] [QUENTE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 1484.58, "reach": 24255, "ctr": 0.65, "cpc": 4.19, "frequency": 2.232736, "actions": [{"action_type": "page_engagement", "value": "11788", "1d_view": "11124"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "3", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "46", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "31", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "58", "1d_view": "2"}, {"action_type": "post_engagement", "value": "11786", "1d_view": "11124"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "83", "1d_view": "2"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "54", "1d_view": "2"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "64", "1d_view": "2"}, {"action_type": "video_view", "value": "11168", "1d_view": "11124"}, {"action_type": "link_click", "value": "354"}, {"action_type": "post_reaction", "value": "233"}, {"action_type": "onsite_conversion.post_unlike", "value": "5"}, {"action_type": "like", "value": "2"}, {"action_type": "post_interaction_gross", "value": "264"}, {"action_type": "comment", "value": "19"}, {"action_type": "post_interaction_net", "value": "269"}, {"action_type": "post", "value": "9"}, {"action_type": "onsite_conversion.post_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_comment", "value": "19"}, {"action_type": "onsite_conversion.post_net_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_like", "value": "228"}, {"action_type": "onsite_conversion.messaging_conversation_replied_7d", "value": "1"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "02 [RISE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 1203.9, "reach": 29755, "ctr": 0.48, "cpc": 4.51, "frequency": 1.874643, "actions": [{"action_type": "page_engagement", "value": "16753", "1d_view": "16158"}, {"action_type": "post_engagement", "value": "16751", "1d_view": "16158"}, {"action_type": "video_view", "value": "16206", "1d_view": "16158"}, {"action_type": "link_click", "value": "267"}, {"action_type": "post_reaction", "value": "254"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "78"}, {"action_type": "onsite_conversion.post_unlike", "value": "5"}, {"action_type": "like", "value": "2"}, {"action_type": "post_interaction_gross", "value": "278"}, {"action_type": "comment", "value": "17"}, {"action_type": "post_interaction_net", "value": "283"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "38"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "59"}, {"action_type": "post", "value": "4"}, {"action_type": "onsite_conversion.post_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_comment", "value": "17"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "20"}, {"action_type": "onsite_conversion.post_net_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_like", "value": "249"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "27"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "66"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "01 [RISE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 858.1, "reach": 21504, "ctr": 0.69, "cpc": 3.76, "frequency": 1.547573, "actions": [{"action_type": "page_engagement", "value": "10192", "1d_view": "9697"}, {"action_type": "post_engagement", "value": "10190", "1d_view": "9697"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "50", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "45", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "46", "1d_view": "1"}, {"action_type": "video_view", "value": "9729", "1d_view": "9697"}, {"action_type": "link_click", "value": "228"}, {"action_type": "post_reaction", "value": "215"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "2"}, {"action_type": "onsite_conversion.post_unlike", "value": "2"}, {"action_type": "like", "value": "2"}, {"action_type": "post_interaction_gross", "value": "233"}, {"action_type": "comment", "value": "10"}, {"action_type": "post_interaction_net", "value": "235"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "22"}, {"action_type": "post", "value": "8"}, {"action_type": "onsite_conversion.post_net_comment", "value": "10"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "12"}, {"action_type": "onsite_conversion.post_net_like", "value": "213"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "28"}], "objective": "OUTCOME_ENGAGEMENT"}], "last_30d": [{"campaign_name": "[RISE] TRAFEGO PARA O PERFIL", "spend": 307.42, "reach": 15513, "ctr": 2.91, "cpc": 0.46, "frequency": 1.481918, "actions": [{"action_type": "page_engagement", "value": "5725", "1d_view": "4995"}, {"action_type": "post_engagement", "value": "5725", "1d_view": "4995"}, {"action_type": "video_view", "value": "4997", "1d_view": "4995"}, {"action_type": "onsite_conversion.messaging_block", "value": "2"}, {"action_type": "link_click", "value": "670"}, {"action_type": "post_reaction", "value": "51"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "1"}, {"action_type": "onsite_conversion.post_unlike", "value": "9"}, {"action_type": "post_interaction_gross", "value": "58"}, {"action_type": "post_interaction_net", "value": "67"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "1"}, {"action_type": "post", "value": "4"}, {"action_type": "onsite_conversion.post_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_like", "value": "42"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "1"}, {"action_type": "onsite_conversion.messaging_conversation_replied_7d", "value": "1"}], "objective": "OUTCOME_TRAFFIC"}, {"campaign_name": "[RISE] [BRANDING] ENGAJAMENTO COM A PUBLICAÇÃO", "spend": 307.45, "reach": 30537, "ctr": 0.0, "cpc": 307.45, "frequency": 1.637227, "actions": [{"action_type": "page_engagement", "value": "20317", "1d_view": "20103"}, {"action_type": "post_engagement", "value": "20317", "1d_view": "20103"}, {"action_type": "video_view", "value": "20137", "1d_view": "20103"}, {"action_type": "link_click", "value": "1"}, {"action_type": "post_reaction", "value": "169"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "1"}, {"action_type": "onsite_conversion.post_unlike", "value": "10"}, {"action_type": "post_interaction_gross", "value": "179"}, {"action_type": "comment", "value": "4"}, {"action_type": "post_interaction_net", "value": "189"}, {"action_type": "post", "value": "3"}, {"action_type": "onsite_conversion.post_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_comment", "value": "4"}, {"action_type": "onsite_conversion.post_net_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_like", "value": "159"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "01 [RISE] [QUENTE] SUZANO/IMPLANTE  [ENG] [ABO]", "spend": 4903.89, "reach": 60569, "ctr": 0.69, "cpc": 3.58, "frequency": 3.274134, "actions": [{"action_type": "page_engagement", "value": "52496", "1d_view": "49889"}, {"action_type": "post_engagement", "value": "52476", "1d_view": "49889"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "330", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "268", "1d_view": "1"}, {"action_type": "video_view", "value": "50089", "1d_view": "49889"}, {"action_type": "link_click", "value": "1369"}, {"action_type": "post_reaction", "value": "897"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "3"}, {"action_type": "onsite_conversion.post_unlike", "value": "28"}, {"action_type": "like", "value": "20"}, {"action_type": "post_interaction_gross", "value": "1018"}, {"action_type": "comment", "value": "85"}, {"action_type": "post_interaction_net", "value": "1049"}, {"action_type": "post_uncomment", "value": "2"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "148"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "205"}, {"action_type": "post", "value": "17"}, {"action_type": "onsite_conversion.post_unsave", "value": "1"}, {"action_type": "onsite_conversion.post_save", "value": "19"}, {"action_type": "onsite_conversion.post_net_comment", "value": "87"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "110"}, {"action_type": "onsite_conversion.post_net_save", "value": "18"}, {"action_type": "onsite_conversion.post_net_like", "value": "869"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "230"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "02 [RISE] [QUENTE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 4545.42, "reach": 67909, "ctr": 0.6, "cpc": 3.84, "frequency": 2.899248, "actions": [{"action_type": "page_engagement", "value": "45591", "1d_view": "43305"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "5", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "149", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "105", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "218", "1d_view": "2"}, {"action_type": "post_engagement", "value": "45579", "1d_view": "43305"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "293", "1d_view": "2"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "186", "1d_view": "2"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "231", "1d_view": "3"}, {"action_type": "video_view", "value": "43496", "1d_view": "43305"}, {"action_type": "onsite_conversion.messaging_block", "value": "1"}, {"action_type": "link_click", "value": "1183"}, {"action_type": "post_reaction", "value": "793"}, {"action_type": "onsite_conversion.post_unlike", "value": "23"}, {"action_type": "like", "value": "12"}, {"action_type": "post_interaction_gross", "value": "900"}, {"action_type": "comment", "value": "76"}, {"action_type": "post_interaction_net", "value": "924"}, {"action_type": "post", "value": "20"}, {"action_type": "onsite_conversion.post_unsave", "value": "1"}, {"action_type": "onsite_conversion.post_save", "value": "11"}, {"action_type": "onsite_conversion.post_net_comment", "value": "76"}, {"action_type": "onsite_conversion.post_net_save", "value": "10"}, {"action_type": "onsite_conversion.post_net_like", "value": "770"}, {"action_type": "onsite_conversion.messaging_conversation_replied_7d", "value": "1"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "02 [RISE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 1203.9, "reach": 29755, "ctr": 0.48, "cpc": 4.51, "frequency": 1.874643, "actions": [{"action_type": "page_engagement", "value": "16753", "1d_view": "16158"}, {"action_type": "post_engagement", "value": "16751", "1d_view": "16158"}, {"action_type": "video_view", "value": "16206", "1d_view": "16158"}, {"action_type": "link_click", "value": "267"}, {"action_type": "post_reaction", "value": "254"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "78"}, {"action_type": "onsite_conversion.post_unlike", "value": "5"}, {"action_type": "like", "value": "2"}, {"action_type": "post_interaction_gross", "value": "278"}, {"action_type": "comment", "value": "17"}, {"action_type": "post_interaction_net", "value": "283"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "38"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "59"}, {"action_type": "post", "value": "4"}, {"action_type": "onsite_conversion.post_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_comment", "value": "17"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "20"}, {"action_type": "onsite_conversion.post_net_save", "value": "3"}, {"action_type": "onsite_conversion.post_net_like", "value": "249"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "27"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "66"}], "objective": "OUTCOME_ENGAGEMENT"}, {"campaign_name": "01 [RISE] SUZANO/IMPLANTE [ENG] [ABO]", "spend": 858.1, "reach": 21504, "ctr": 0.69, "cpc": 3.76, "frequency": 1.547573, "actions": [{"action_type": "page_engagement", "value": "10192", "1d_view": "9697"}, {"action_type": "post_engagement", "value": "10190", "1d_view": "9697"}, {"action_type": "onsite_conversion.total_messaging_connection", "value": "50", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_first_reply", "value": "45", "1d_view": "1"}, {"action_type": "onsite_conversion.messaging_conversation_started_7d", "value": "46", "1d_view": "1"}, {"action_type": "video_view", "value": "9729", "1d_view": "9697"}, {"action_type": "link_click", "value": "228"}, {"action_type": "post_reaction", "value": "215"}, {"action_type": "onsite_conversion.messaging_welcome_message_view", "value": "2"}, {"action_type": "onsite_conversion.post_unlike", "value": "2"}, {"action_type": "like", "value": "2"}, {"action_type": "post_interaction_gross", "value": "233"}, {"action_type": "comment", "value": "10"}, {"action_type": "post_interaction_net", "value": "235"}, {"action_type": "onsite_conversion.messaging_user_depth_2_message_send", "value": "22"}, {"action_type": "post", "value": "8"}, {"action_type": "onsite_conversion.post_net_comment", "value": "10"}, {"action_type": "onsite_conversion.messaging_user_depth_3_message_send", "value": "12"}, {"action_type": "onsite_conversion.post_net_like", "value": "213"}, {"action_type": "onsite_conversion.messaging_user_depth_5_message_send", "value": "28"}], "objective": "OUTCOME_ENGAGEMENT"}]};
+const PERIOD_DATA = {"last_7d": {"spend": 2821.7, "reach": 52735, "impressions": 119830, "clicks": 2491, "link_clicks": 793, "ctr": 0.66, "cpc": 3.56, "cpm": 23.547526, "frequency": 2.272305, "dms": 136, "convs_ig": 30, "convs_fb": 106, "custo_conversa": 20.75, "ads": {"120230484648200094": {"spend": 1.7, "reach": 362, "ctr": 1.104972, "resultado_label": "Resultados", "resultado_val": 0}, "120233647738630094": {"spend": 7.9, "reach": 1582, "ctr": 1.934704, "resultado_label": "Resultados", "resultado_val": 0}, "120236819459200094": {"spend": 0.16, "reach": 11, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120236819570270094": {"spend": 2.89, "reach": 157, "ctr": 3.351955, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239079646040094": {"spend": 9.78, "reach": 281, "ctr": 1.960784, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239079666750094": {"spend": 1.03, "reach": 43, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239079724770094": {"spend": 14.38, "reach": 387, "ctr": 2.777778, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239079724780094": {"spend": 0.05, "reach": 3, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120241458801050094": {"spend": 0.41, "reach": 41, "ctr": 2.439024, "resultado_label": "Cliques no link", "resultado_val": 2}, "120241458886530094": {"spend": 1.02, "reach": 90, "ctr": 3.333333, "resultado_label": "Cliques no link", "resultado_val": 4}, "120241458929400094": {"spend": 0.16, "reach": 13, "ctr": 7.692308, "resultado_label": "Cliques no link", "resultado_val": 1}, "120241459003800094": {"spend": 68.66, "reach": 5695, "ctr": 2.368186, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120241459154820094": {"spend": 3.23, "reach": 463, "ctr": 1.713062, "resultado_label": "Resultados", "resultado_val": 0}, "120241459289270094": {"spend": 57.88, "reach": 7351, "ctr": 1.100522, "resultado_label": "Resultados", "resultado_val": 0}, "120241966650460094": {"spend": 0.0, "reach": 0, "ctr": 0.0, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120241966838490094": {"spend": 0.0, "reach": 0, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120241966916330094": {"spend": 13.27, "reach": 639, "ctr": 3.405573, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120241966916360094": {"spend": 0.02, "reach": 3, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120241966916890094": {"spend": 12.69, "reach": 369, "ctr": 3.626943, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120241967396640094": {"spend": 0.09, "reach": 6, "ctr": 16.666667, "resultado_label": "Resultados", "resultado_val": 0}, "120243973648400094": {"spend": 0.29, "reach": 11, "ctr": 0.0, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120243973648560094": {"spend": 13.95, "reach": 649, "ctr": 2.205882, "resultado_label": "Conversas iniciadas", "resultado_val": 3}, "120243973649050094": {"spend": 19.12, "reach": 756, "ctr": 2.692778, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120243973649120094": {"spend": 0.02, "reach": 2, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120243973830370094": {"spend": 0.07, "reach": 6, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120243973836940094": {"spend": 0.03, "reach": 2, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120244238383470094": {"spend": 13.98, "reach": 675, "ctr": 1.529903, "resultado_label": "Resultados", "resultado_val": 0}, "120244238383480094": {"spend": 0.56, "reach": 9, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120244238383490094": {"spend": 5.74, "reach": 208, "ctr": 3.196347, "resultado_label": "Cliques no link", "resultado_val": 1}, "120244238383500094": {"spend": 243.36, "reach": 9510, "ctr": 1.519249, "resultado_label": "Conversas iniciadas", "resultado_val": 8}, "120244238383510094": {"spend": 15.56, "reach": 595, "ctr": 3.464567, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120244238383530094": {"spend": 74.33, "reach": 3155, "ctr": 1.865223, "resultado_label": "Conversas iniciadas", "resultado_val": 7}, "120244238383540094": {"spend": 4.28, "reach": 225, "ctr": 2.953587, "resultado_label": "Cliques no link", "resultado_val": 2}, "120244238383550094": {"spend": 4.12, "reach": 190, "ctr": 2.020202, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120244238383560094": {"spend": 6.96, "reach": 91, "ctr": 1.075269, "resultado_label": "Resultados", "resultado_val": 0}, "120244238383570094": {"spend": 36.47, "reach": 1108, "ctr": 2.237654, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120244238383580094": {"spend": 3.2, "reach": 94, "ctr": 1.0, "resultado_label": "Resultados", "resultado_val": 0}, "120244238383590094": {"spend": 22.25, "reach": 1095, "ctr": 2.067825, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120244238383600094": {"spend": 3.07, "reach": 71, "ctr": 1.388889, "resultado_label": "Cliques no link", "resultado_val": 1}, "120244238931920094": {"spend": 14.0, "reach": 302, "ctr": 4.792332, "resultado_label": "Conversas iniciadas", "resultado_val": 3}, "120244238931930094": {"spend": 49.63, "reach": 2165, "ctr": 1.886792, "resultado_label": "Conversas iniciadas", "resultado_val": 3}, "120244238931940094": {"spend": 2.81, "reach": 178, "ctr": 4.145078, "resultado_label": "Cliques no link", "resultado_val": 1}, "120244238931950094": {"spend": 2.97, "reach": 154, "ctr": 3.04878, "resultado_label": "Cliques no link", "resultado_val": 4}, "120244238931960094": {"spend": 2.64, "reach": 152, "ctr": 2.5, "resultado_label": "Resultados", "resultado_val": 0}, "120244238931970094": {"spend": 9.99, "reach": 317, "ctr": 2.96496, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120244238931980094": {"spend": 3.81, "reach": 204, "ctr": 2.643172, "resultado_label": "Cliques no link", "resultado_val": 1}, "120244238931990094": {"spend": 1.01, "reach": 68, "ctr": 1.298701, "resultado_label": "Resultados", "resultado_val": 0}, "120244238932000094": {"spend": 1.56, "reach": 88, "ctr": 4.301075, "resultado_label": "Resultados", "resultado_val": 0}, "120244238932010094": {"spend": 3.02, "reach": 147, "ctr": 1.257862, "resultado_label": "Cliques no link", "resultado_val": 1}, "120244238932020094": {"spend": 18.08, "reach": 470, "ctr": 1.879699, "resultado_label": "Cliques no link", "resultado_val": 4}}}, "last_14d": {"spend": 5666.31, "reach": 87004, "impressions": 241655, "clicks": 4933, "link_clicks": 1635, "ctr": 0.68, "cpc": 3.47, "cpm": 23.447932, "frequency": 2.777516, "dms": 263, "convs_ig": 64, "convs_fb": 199, "custo_conversa": 21.54, "ads": {"120230484648200094": {"spend": 4.13, "reach": 807, "ctr": 0.933489, "resultado_label": "Resultados", "resultado_val": 0}, "120233647738630094": {"spend": 15.64, "reach": 2981, "ctr": 1.725732, "resultado_label": "Resultados", "resultado_val": 0}, "120236819459020094": {"spend": 9.0, "reach": 181, "ctr": 2.816901, "resultado_label": "Cliques no link", "resultado_val": 2}, "120236819459200094": {"spend": 9.11, "reach": 283, "ctr": 3.067485, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120236819459400094": {"spend": 5.28, "reach": 229, "ctr": 3.813559, "resultado_label": "Conversas iniciadas", "resultado_val": 3}, "120236819459410094": {"spend": 3.58, "reach": 163, "ctr": 4.848485, "resultado_label": "Cliques no link", "resultado_val": 7}, "120236819570250094": {"spend": 17.72, "reach": 448, "ctr": 3.269231, "resultado_label": "Cliques no link", "resultado_val": 5}, "120236819570270094": {"spend": 19.71, "reach": 625, "ctr": 2.521008, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120236819570310094": {"spend": 1.72, "reach": 97, "ctr": 3.0, "resultado_label": "Cliques no link", "resultado_val": 2}, "120236819570630094": {"spend": 7.11, "reach": 256, "ctr": 3.773585, "resultado_label": "Cliques no link", "resultado_val": 6}, "120237650015240094": {"spend": 3.75, "reach": 188, "ctr": 1.904762, "resultado_label": "Cliques no link", "resultado_val": 1}, "120237650238290094": {"spend": 1.03, "reach": 66, "ctr": 1.369863, "resultado_label": "Resultados", "resultado_val": 0}, "120237650293680094": {"spend": 0.54, "reach": 32, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120237650293690094": {"spend": 1.83, "reach": 100, "ctr": 1.818182, "resultado_label": "Resultados", "resultado_val": 0}, "120237650614670094": {"spend": 0.79, "reach": 66, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120237650687360094": {"spend": 0.11, "reach": 9, "ctr": 11.111111, "resultado_label": "Resultados", "resultado_val": 0}, "120237650721950094": {"spend": 0.12, "reach": 7, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120237650721980094": {"spend": 0.48, "reach": 47, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239079646040094": {"spend": 378.67, "reach": 5167, "ctr": 1.992645, "resultado_label": "Conversas iniciadas", "resultado_val": 14}, "120239079666750094": {"spend": 13.57, "reach": 471, "ctr": 2.717391, "resultado_label": "Resultados", "resultado_val": 0}, "120239079666760094": {"spend": 10.53, "reach": 361, "ctr": 1.372998, "resultado_label": "Resultados", "resultado_val": 0}, "120239079724770094": {"spend": 441.09, "reach": 5256, "ctr": 2.097017, "resultado_label": "Conversas iniciadas", "resultado_val": 20}, "120239079724780094": {"spend": 7.0, "reach": 315, "ctr": 1.392758, "resultado_label": "Cliques no link", "resultado_val": 2}, "120239080204290094": {"spend": 0.77, "reach": 40, "ctr": 4.651163, "resultado_label": "Resultados", "resultado_val": 0}, "120239080235250094": {"spend": 11.05, "reach": 322, "ctr": 1.630435, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080235260094": {"spend": 5.91, "reach": 303, "ctr": 1.775148, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080235270094": {"spend": 2.32, "reach": 75, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080406830094": {"spend": 0.03, "reach": 8, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080465690094": {"spend": 0.58, "reach": 32, "ctr": 2.857143, "resultado_label": "Resultados", "resultado_val": 0}, "120239080494670094": {"spend": 0.31, "reach": 24, "ctr": 4.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080510600094": {"spend": 1.26, "reach": 74, "ctr": 1.25, "resultado_label": "Resultados", "resultado_val": 0}, "120239080524310094": {"spend": 0.02, "reach": 3, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080540060094": {"spend": 0.29, "reach": 11, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080550240094": {"spend": 0.36, "reach": 42, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080582950094": {"spend": 5.24, "reach": 250, "ctr": 2.238806, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080582960094": {"spend": 3.56, "reach": 189, "ctr": 1.435407, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080582970094": {"spend": 0.53, "reach": 38, "ctr": 2.439024, "resultado_label": "Resultados", "resultado_val": 0}, "120239080582980094": {"spend": 0.81, "reach": 41, "ctr": 5.882353, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080582990094": {"spend": 0.22, "reach": 27, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080583000094": {"spend": 1.03, "reach": 53, "ctr": 1.754386, "resultado_label": "Resultados", "resultado_val": 0}, "120239080583010094": {"spend": 0.73, "reach": 57, "ctr": 6.896552, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080986250094": {"spend": 0.78, "reach": 42, "ctr": 2.272727, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080986270094": {"spend": 4.91, "reach": 303, "ctr": 0.598802, "resultado_label": "Resultados", "resultado_val": 0}, "120239080986280094": {"spend": 0.27, "reach": 27, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080986290094": {"spend": 0.45, "reach": 23, "ctr": 4.0, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080986300094": {"spend": 1.55, "reach": 63, "ctr": 2.857143, "resultado_label": "Resultados", "resultado_val": 0}, "120239080986310094": {"spend": 3.93, "reach": 161, "ctr": 2.325581, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239080987010094": {"spend": 0.22, "reach": 17, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080987090094": {"spend": 0.27, "reach": 8, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080987100094": {"spend": 0.46, "reach": 23, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}}}, "last_30d": {"spend": 12126.18, "reach": 145120, "impressions": 557240, "clicks": 10949, "link_clicks": 3718, "ctr": 0.67, "cpc": 3.26, "cpm": 21.761144, "frequency": 3.839857, "dms": 612, "convs_ig": 156, "convs_fb": 455, "custo_conversa": 19.81, "ads": {"120230484648200094": {"spend": 14.06, "reach": 2565, "ctr": 0.827041, "resultado_label": "Resultados", "resultado_val": 0}, "120233647738630094": {"spend": 27.76, "reach": 4971, "ctr": 1.659679, "resultado_label": "Resultados", "resultado_val": 0}, "120236819459020094": {"spend": 46.87, "reach": 1068, "ctr": 2.39726, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120236819459200094": {"spend": 39.06, "reach": 971, "ctr": 2.284264, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120236819459400094": {"spend": 32.33, "reach": 1444, "ctr": 2.615572, "resultado_label": "Conversas iniciadas", "resultado_val": 5}, "120236819459410094": {"spend": 33.06, "reach": 1951, "ctr": 2.916461, "resultado_label": "Conversas iniciadas", "resultado_val": 5}, "120236819570250094": {"spend": 35.62, "reach": 914, "ctr": 3.195164, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120236819570270094": {"spend": 106.51, "reach": 2298, "ctr": 1.768531, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120236819570310094": {"spend": 4.59, "reach": 298, "ctr": 2.922078, "resultado_label": "Cliques no link", "resultado_val": 4}, "120236819570630094": {"spend": 23.19, "reach": 1093, "ctr": 2.468085, "resultado_label": "Cliques no link", "resultado_val": 12}, "120237650015240094": {"spend": 28.11, "reach": 925, "ctr": 3.346008, "resultado_label": "Cliques no link", "resultado_val": 8}, "120237650238290094": {"spend": 6.62, "reach": 275, "ctr": 3.98773, "resultado_label": "Cliques no link", "resultado_val": 2}, "120237650293680094": {"spend": 4.67, "reach": 159, "ctr": 2.73224, "resultado_label": "Resultados", "resultado_val": 0}, "120237650293690094": {"spend": 14.74, "reach": 689, "ctr": 1.775805, "resultado_label": "Cliques no link", "resultado_val": 1}, "120237650614670094": {"spend": 3.47, "reach": 299, "ctr": 1.474926, "resultado_label": "Resultados", "resultado_val": 0}, "120237650687360094": {"spend": 0.69, "reach": 73, "ctr": 4.109589, "resultado_label": "Resultados", "resultado_val": 0}, "120237650721950094": {"spend": 0.46, "reach": 42, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120237650721980094": {"spend": 7.15, "reach": 511, "ctr": 1.362862, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239079646040094": {"spend": 1187.97, "reach": 9045, "ctr": 2.01971, "resultado_label": "Conversas iniciadas", "resultado_val": 52}, "120239079666750094": {"spend": 24.95, "reach": 867, "ctr": 2.342342, "resultado_label": "Cliques no link", "resultado_val": 2}, "120239079666760094": {"spend": 38.23, "reach": 1117, "ctr": 2.557704, "resultado_label": "Conversas iniciadas", "resultado_val": 2}, "120239079724770094": {"spend": 1335.24, "reach": 9563, "ctr": 1.988609, "resultado_label": "Conversas iniciadas", "resultado_val": 56}, "120239079724780094": {"spend": 19.17, "reach": 681, "ctr": 1.911589, "resultado_label": "Cliques no link", "resultado_val": 3}, "120239080204290094": {"spend": 17.55, "reach": 579, "ctr": 2.672293, "resultado_label": "Cliques no link", "resultado_val": 3}, "120239080235250094": {"spend": 42.72, "reach": 1126, "ctr": 1.400382, "resultado_label": "Cliques no link", "resultado_val": 6}, "120239080235260094": {"spend": 18.29, "reach": 759, "ctr": 2.141328, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239080235270094": {"spend": 12.58, "reach": 238, "ctr": 2.711864, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080406830094": {"spend": 5.28, "reach": 267, "ctr": 2.657807, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239080465690094": {"spend": 2.9, "reach": 123, "ctr": 2.307692, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080494670094": {"spend": 2.75, "reach": 160, "ctr": 2.197802, "resultado_label": "Resultados", "resultado_val": 0}, "120239080510600094": {"spend": 4.43, "reach": 243, "ctr": 1.086957, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080524310094": {"spend": 0.42, "reach": 36, "ctr": 2.564103, "resultado_label": "Resultados", "resultado_val": 0}, "120239080540060094": {"spend": 1.5, "reach": 41, "ctr": 4.761905, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080550240094": {"spend": 2.1, "reach": 123, "ctr": 2.272727, "resultado_label": "Resultados", "resultado_val": 0}, "120239080582950094": {"spend": 19.87, "reach": 838, "ctr": 3.036649, "resultado_label": "Conversas iniciadas", "resultado_val": 3}, "120239080582960094": {"spend": 6.91, "reach": 316, "ctr": 1.358696, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080582970094": {"spend": 5.57, "reach": 355, "ctr": 1.767677, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239080582980094": {"spend": 2.03, "reach": 129, "ctr": 2.040816, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080582990094": {"spend": 4.15, "reach": 267, "ctr": 2.047782, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080583000094": {"spend": 2.7, "reach": 157, "ctr": 2.259887, "resultado_label": "Resultados", "resultado_val": 0}, "120239080583010094": {"spend": 4.18, "reach": 261, "ctr": 2.836879, "resultado_label": "Cliques no link", "resultado_val": 1}, "120239080986250094": {"spend": 5.4, "reach": 216, "ctr": 1.239669, "resultado_label": "Cliques no link", "resultado_val": 2}, "120239080986270094": {"spend": 11.51, "reach": 674, "ctr": 1.434159, "resultado_label": "Cliques no link", "resultado_val": 3}, "120239080986280094": {"spend": 4.06, "reach": 309, "ctr": 0.58651, "resultado_label": "Resultados", "resultado_val": 0}, "120239080986290094": {"spend": 7.63, "reach": 387, "ctr": 1.73913, "resultado_label": "Cliques no link", "resultado_val": 3}, "120239080986300094": {"spend": 4.03, "reach": 166, "ctr": 3.208556, "resultado_label": "Cliques no link", "resultado_val": 2}, "120239080986310094": {"spend": 9.98, "reach": 454, "ctr": 2.723735, "resultado_label": "Conversas iniciadas", "resultado_val": 1}, "120239080987010094": {"spend": 0.85, "reach": 59, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080987090094": {"spend": 1.15, "reach": 77, "ctr": 0.0, "resultado_label": "Resultados", "resultado_val": 0}, "120239080987100094": {"spend": 5.72, "reach": 315, "ctr": 1.139601, "resultado_label": "Cliques no link", "resultado_val": 1}}}};
+
+// ═══ HELPERS DE FORMATAÇÃO (JS) ═══
+const MESES_JS = ['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+function parseDate(s) { return new Date(s + 'T12:00:00'); }
+function dateBr(ds) { const d = parseDate(ds); return d.getDate() + ' ' + MESES_JS[d.getMonth()+1]; }
+function fmtNum(n) { return Math.round(n).toLocaleString('pt-BR'); }
+function fmtBrl(v) { return 'R$ ' + v.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+function fmtPct(v) { return v.toFixed(2).replace('.', ',') + '%'; }
+
+// ═══ HELPERS DE CAMPANHA ═══
+function extractAction(actions, type) {
+  if (!actions) return 0;
+  for (const a of actions) {
+    if (a.action_type === type) return parseInt(a.value) || 0;
+  }
+  return 0;
+}
+
+function getResultado(objective, actions) {
+  const conversas = extractAction(actions, 'onsite_conversion.messaging_conversation_started_7d');
+  if (conversas > 0) return { label: 'Conversas iniciadas', val: conversas };
+  const leads = extractAction(actions, 'lead');
+  if (leads > 0) return { label: 'Cadastros', val: leads };
+  const clicks = extractAction(actions, 'link_click');
+  if (clicks > 0) return { label: 'Cliques no link', val: clicks };
+  return { label: 'Resultados', val: 0 };
+}
+
+function renderCamps(preset) {
+  const camps = CAMPS_DATA[preset] || CAMPS_DATA['last_30d'] || [];
+  const container = document.getElementById('campCardsContainer');
+  if (!container) return;
+  const countEl = document.getElementById('camp-count');
+  if (countEl) countEl.textContent = camps.length;
+  if (!camps.length) {
+    container.innerHTML = '<div style="color:var(--muted);grid-column:1/-1;padding:20px;">Sem campanhas com gasto no período.</div>';
+    return;
+  }
+  const totalSpend = camps.reduce((s, c) => s + c.spend, 0) || 1;
+  container.innerHTML = camps.map(camp => {
+    const sat = camp.frequency >= 5 ? 'critica' : (camp.frequency >= 3 ? 'atencao' : 'ok');
+    const satLabel = sat === 'ok' ? 'OK' : (sat === 'atencao' ? 'Atenção' : 'Saturado');
+    const pct = (camp.spend / totalSpend * 100).toFixed(1);
+    const ctrColor = camp.ctr > 2 ? 'var(--green)' : 'var(--accent)';
+    const res = getResultado(camp.objective, camp.actions);
+    const views    = extractAction(camp.actions, 'video_view');
+    const reactions= extractAction(camp.actions, 'post_reaction');
+    const saves    = extractAction(camp.actions, 'onsite_conversion.post_save');
+    const comments = extractAction(camp.actions, 'comment');
+    return '<div class="camp-card">' +
+      '<div class="camp-top"><div><div class="camp-name">' + camp.campaign_name + '</div></div>' +
+      '<div style="text-align:right;"><div class="camp-spend" style="color:var(--accent);">' + fmtBrl(camp.spend) + '</div>' +
+      '<div style="font-size:12px;color:var(--muted);">' + pct + '% do total</div></div></div>' +
+      '<div class="camp-metrics" style="grid-template-columns:repeat(5,1fr);">' +
+        '<div class="camp-metric"><div class="camp-metric-label">Alcance</div><div class="camp-metric-value">' + fmtNum(camp.reach) + '</div></div>' +
+        '<div class="camp-metric"><div class="camp-metric-label">CTR</div><div class="camp-metric-value" style="color:' + ctrColor + ';">' + fmtPct(camp.ctr) + '</div></div>' +
+        '<div class="camp-metric"><div class="camp-metric-label">CPC</div><div class="camp-metric-value">' + fmtBrl(camp.cpc) + '</div></div>' +
+        '<div class="camp-metric"><div class="camp-metric-label">Frequência</div><div class="camp-metric-value">' + camp.frequency.toFixed(1) + '</div><span class="sat-badge ' + sat + '">' + satLabel + '</span></div>' +
+        '<div class="camp-metric"><div class="camp-metric-label">' + res.label + '</div><div class="camp-metric-value" style="color:var(--green);">' + fmtNum(res.val) + '</div></div>' +
+      '</div>' +
+      '<div class="camp-actions">' +
+        '<div class="action-box"><div class="action-val">' + fmtNum(views) + '</div><div class="action-name">Visualizações</div></div>' +
+        '<div class="action-box"><div class="action-val">' + fmtNum(reactions) + '</div><div class="action-name">Reações</div></div>' +
+        '<div class="action-box"><div class="action-val">' + fmtNum(saves) + '</div><div class="action-name">Salvamentos</div></div>' +
+        '<div class="action-box"><div class="action-val">' + fmtNum(comments) + '</div><div class="action-name">Comentários</div></div>' +
+      '</div></div>';
+  }).join('');
+}
+
+// ═══ FILTRO DE PERÍODO ═══
+function filterDaily(since, until) {
+  const s = parseDate(since), u = parseDate(until);
+  return DAILY_DATA.filter(d => { const dt = parseDate(d.date); return dt >= s && dt <= u; });
+}
+
+function sumDaily(rows) {
+  const r = { spend:0, impressions:0, clicks:0, reach:0, link_clicks:0, video_views:0, saves:0, dms:0, leads:0, reactions:0, comments_count:0, landing_page_views:0 };
+  rows.forEach(d => {
+    r.spend += d.spend; r.impressions += d.impressions; r.clicks += d.clicks; r.reach += d.reach;
+    r.link_clicks += d.link_clicks||0; r.video_views += d.video_views||0; r.saves += d.saves||0;
+    r.dms += d.dms||0; r.leads += d.leads||0; r.reactions += d.reactions||0;
+    r.comments_count += d.comments_count||0; r.landing_page_views += d.landing_page_views||0;
+  });
+  r.ctr = r.impressions > 0 ? (r.link_clicks / r.impressions * 100) : 0;
+  r.cpc = r.link_clicks > 0 ? (r.spend / r.link_clicks) : 0;
+  r.cpm = r.impressions > 0 ? (r.spend / r.impressions * 1000) : 0;
+  r.dias = rows.length;
+  r.gasto_diario = rows.length > 0 ? (r.spend / rows.length) : 0;
+  return r;
+}
+
+function calcDeltas(cur, prev) {
+  const d = {};
+  ['spend','impressions','clicks','reach','ctr','cpc','cpm'].forEach(k => {
+    const c = cur[k]||0, p = prev[k]||0;
+    d[k] = p > 0 ? ((c - p) / p * 100) : null;
+  });
+  return d;
+}
+
+function deltaHtml(valor, inverso) {
+  if (valor === null || valor === undefined) return '<span class="delta neutral">—</span>';
+  const classe = inverso ? (valor > 0 ? 'down' : valor < 0 ? 'up' : 'neutral') : (valor > 0 ? 'up' : valor < 0 ? 'down' : 'neutral');
+  const seta = valor > 0 ? '▲' : valor < 0 ? '▼' : '—';
+  return '<span class="delta ' + classe + '">' + seta + ' ' + Math.abs(valor).toFixed(1) + '%</span>';
+}
+
+function applyFilter(preset) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+
+  // Atualizar botão ativo
+  const btnMap = { last_7d:'7d', last_14d:'14d', last_30d:'30d' };
+  const btn = document.getElementById('filter-' + btnMap[preset]);
+  if (btn) btn.classList.add('active');
+
+  // Atualizar campanhas via JSON pré-coletado
+  renderCamps(preset);
+
+  // Atualizar label do título
+  const labelMap = { last_7d:'7 dias', last_14d:'14 dias', last_30d:'30 dias' };
+  const el = id => document.getElementById(id);
+  const kpiLabel = el('kpi-period-label');
+  if (kpiLabel) kpiLabel.innerHTML = '&middot; ' + (labelMap[preset] || '');
+
+  if (DAILY_DATA.length === 0) return;
+
+  const diasMap = { last_7d: 7, last_14d: 14, last_30d: 30 };
+  const nDias = diasMap[preset] || 30;
+  const lastDate = DAILY_DATA[DAILY_DATA.length - 1].date;
+  const lastDt = parseDate(lastDate);
+  const s = new Date(lastDt); s.setDate(s.getDate() - nDias + 1);
+  const since = s.toISOString().slice(0, 10);
+  const until = lastDate;
+
+  const filtered = filterDaily(since, until);
+  const current = sumDaily(filtered);
+
+  // Comparativo com período anterior
+  const perioDias = Math.round((parseDate(until) - parseDate(since)) / 86400000) + 1;
+  const prevUntilDt = new Date(parseDate(since)); prevUntilDt.setDate(prevUntilDt.getDate() - 1);
+  const prevSinceDt = new Date(prevUntilDt); prevSinceDt.setDate(prevSinceDt.getDate() - perioDias + 1);
+  const prevFiltered = filterDaily(prevSinceDt.toISOString().slice(0,10), prevUntilDt.toISOString().slice(0,10));
+  const deltas = prevFiltered.length > 0 ? calcDeltas(current, sumDaily(prevFiltered)) : {};
+
+  // Atualizar KPIs usando PERIOD_DATA (dados reais da API por período)
+  const pd = PERIOD_DATA[preset] || PERIOD_DATA['last_30d'];
+  const diasPorDia = nDias > 0 ? pd.spend / nDias : 0;
+  el('kpi-val-spend').textContent = fmtBrl(pd.spend);
+  el('kpi-sub-spend').innerHTML = '~' + fmtBrl(diasPorDia) + '/dia ';
+  el('kpi-val-reach').textContent = fmtNum(pd.reach);
+  el('kpi-sub-reach').innerHTML = 'pessoas únicas ';
+  el('kpi-val-freq').textContent = pd.frequency.toFixed(2).replace('.', ',');
+  el('kpi-val-impressions').textContent = fmtNum(pd.impressions);
+  el('kpi-sub-impressions').innerHTML = 'exibições ';
+  el('kpi-val-link-clicks').textContent = fmtNum(pd.link_clicks);
+  el('kpi-sub-link-clicks').innerHTML = fmtNum(pd.clicks) + ' cliques totais ';
+  el('kpi-val-ctr').textContent = fmtPct(pd.ctr);
+  el('kpi-sub-ctr').innerHTML = 'taxa de clique ';
+  el('kpi-val-cpc').textContent = fmtBrl(pd.cpc);
+  el('kpi-sub-cpc').innerHTML = 'custo por clique ';
+  el('kpi-val-cpm').textContent = fmtBrl(pd.cpm);
+  el('kpi-sub-cpm').innerHTML = 'custo por mil ';
+  // Linha 3 — conversas (dados reais por período)
+  const upd = (id, val) => { const e = el(id); if (e) e.textContent = val; };
+  upd('kpi-val-dms', fmtNum(pd.dms));
+  upd('kpi-val-cpm-conversa', pd.custo_conversa > 0 ? fmtBrl(pd.custo_conversa) : '—');
+  // Conversas IG/FB (reais por período)
+  const convCards = document.querySelectorAll('.kpi-card.blue-card .kpi-value');
+  if (convCards.length >= 4) {
+    convCards[0].textContent = fmtNum(pd.dms);
+    convCards[1].textContent = fmtNum(pd.convs_ig);
+    convCards[2].textContent = fmtNum(pd.convs_fb);
+    convCards[3].textContent = pd.custo_conversa > 0 ? fmtBrl(pd.custo_conversa) : '—';
+  }
+
+  // Trocar gráficos demográficos
+  ['7d','14d','30d'].forEach(p => {
+    const d = document.getElementById('demo-' + p); if (d) d.style.display = 'none';
+  });
+  const demoId = 'demo-' + (btnMap[preset] || '30d');
+  const demoEl = document.getElementById(demoId); if (demoEl) demoEl.style.display = '';
+
+  // Atualizar métricas dos criativos
+  const adsM = pd.ads || {};
+  document.querySelectorAll('[data-ad-id]').forEach(card => {
+    const adId = card.getAttribute('data-ad-id');
+    const m = adsM[adId];
+    if (!m) return;
+    const sEl = card.querySelector('[data-ad-metric="spend"]');
+    const rEl = card.querySelector('[data-ad-metric="reach"]');
+    const resEl = card.querySelector('[data-ad-metric="resultado"]');
+    const ctrEl = card.querySelector('[data-ad-metric="ctr"]');
+    if (sEl) sEl.textContent = fmtBrl(m.spend);
+    if (rEl) rEl.textContent = fmtNum(m.reach);
+    if (resEl) resEl.textContent = fmtNum(m.resultado_val);
+    if (ctrEl) ctrEl.textContent = fmtPct(m.ctr);
+  });
+
+  renderDailyBars(filtered);
+}
+
+// ═══ EXPORTAR PDF ═══
+function exportPDF() {
+  window.print();
+}
+
+// ═══ THEME TOGGLE ═══
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') !== 'light';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('theme-icon').textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19';
+  localStorage.setItem('report-theme', isDark ? 'light' : 'dark');
+}
+
+(function() {
+  const saved = localStorage.getItem('report-theme');
+  if (saved && saved !== 'dark') {
+    document.documentElement.setAttribute('data-theme', saved);
+    document.getElementById('theme-icon').textContent = saved === 'light' ? '\u2600\uFE0F' : '\uD83C\uDF19';
+  }
+})();
+
+// ═══ GRÁFICO CSS (barras diárias) ═══
+function renderDailyBars(data) {
+  var container = document.getElementById('dailyBars');
+  var axis = document.getElementById('dailyAxis');
+  if (!container) return;
+  if (!data || data.length === 0) {
+    container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted);font-size:14px;">Sem dados para o período</div>';
+    if (axis) axis.innerHTML = '';
+    return;
+  }
+  var maxSpend = 0;
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].spend > maxSpend) maxSpend = data[i].spend;
+  }
+  if (maxSpend === 0) maxSpend = 1;
+  var html = '';
+  for (var i = 0; i < data.length; i++) {
+    var d = data[i];
+    var h = Math.max(Math.round(d.spend / maxSpend * 170), 2);
+    var label = dateBr(d.date);
+    html += '<div class="css-bar" style="height:' + h + 'px;" title="' + label + '">';
+    html += '<div class="bar-tip"><strong>' + label + '</strong><br>';
+    html += 'Gasto: ' + fmtBrl(d.spend) + '<br>';
+    html += 'Cliques: ' + fmtNum(d.clicks) + '<br>';
+    html += 'Alcance: ' + fmtNum(d.reach) + '</div></div>';
+  }
+  container.innerHTML = html;
+  // Axis labels
+  if (axis && data.length > 1) {
+    axis.innerHTML = '<span>' + dateBr(data[0].date) + '</span><span>' + dateBr(data[data.length-1].date) + '</span>';
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  renderDailyBars(DAILY_DATA);
+  renderCamps('last_30d');
+});
+</script>
+
+</body>
+</html>
